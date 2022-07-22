@@ -1,0 +1,344 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Item {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  nome                  String
+  Tarefa                Tarefa[]
+  Manutencao_Preventiva Manutencao_Preventiva[]
+  Manutencao_Corretiva  Manutencao_Corretiva[]
+
+  @@map("itens")
+}
+
+model Tarefa {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  tipo       TarefaTipos
+  descricao  String
+  frequencia TarefaFrequencia
+
+  id_item               String
+  item                  Item                    @relation(fields: [id_item], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  Manutencao_Preventiva Manutencao_Preventiva[]
+
+  @@map("tarefas")
+}
+
+enum TarefaTipos {
+  SPLIT
+  VRF
+}
+
+enum TarefaFrequencia {
+  mensal
+  trimestral
+  semestral
+  anual
+}
+
+model Setor {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  nome String
+  Sala Sala[]
+
+  @@map("setores")
+}
+
+model Sala {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  nome     String
+  andar    String
+  dimensao String?
+
+  id_setor    String?
+  setor       Setor?        @relation(fields: [id_setor], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  Evaporadora Evaporadora[]
+
+  @@map("salas")
+}
+
+model Relatorio {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  acao       String
+  comentario String?
+
+  id_entidade String
+
+  @@map("relatorios")
+}
+
+model Condensadora {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  codigo           String             @unique
+  modelo           String?
+  status           CondensadoraStatus
+  modulo           String?
+  quadro           String?
+  local_instalacao String?
+
+  Equipamento Equipamento[]
+  Manutencao  Manutencao[]
+
+  @@map("condensadoras")
+}
+
+enum CondensadoraStatus {
+  normal
+  defeito
+  parado
+}
+
+model Evaporadora {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  codigo   String            @unique
+  modelo   String?
+  marca    String?
+  potencia Float             @default(0)
+  status   EvaporadoraStatus
+  quadro   String?
+
+  id_sala String?
+  sala    Sala?   @relation(fields: [id_sala], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  Equipamento            Equipamento[]
+  Manutencao             Manutencao[]
+  Documento_Evaporadora  Documento_Evaporadora[]
+  Documento_Condensadora Documento_Condensadora[]
+
+  @@map("evaporadoras")
+}
+
+enum EvaporadoraStatus {
+  normal
+  defeito
+  parado
+}
+
+model Equipamento {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  tipo   EquipamentoTipo
+  linha  String?
+  codigo String            @unique
+  status EquipamentoStatus
+
+  id_condensadora String
+  condensadora    Condensadora @relation(fields: [id_condensadora], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  id_evaporadora String
+  evaporadora    Evaporadora @relation(fields: [id_evaporadora], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("equipamentos")
+}
+
+enum EquipamentoTipo {
+  SPLIT
+  VRF
+}
+
+enum EquipamentoStatus {
+  normal
+  defeito
+}
+
+model Manutencao {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  tipo             ManutencaoTipo
+  status           ManutencaoStatus
+  comentario       String?
+  tec_responsavel  String
+  custo            Float?
+  agendado         Boolean?         @default(false)
+  foto             String?
+  previsao_termino DateTime?        @default(now())
+  data_termino     DateTime?
+  data_agendado    DateTime?
+
+  id_condensadora String?
+  condensadora    Condensadora? @relation(fields: [id_condensadora], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  id_evaporadora        String?
+  evaporadora           Evaporadora?            @relation(fields: [id_evaporadora], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  Manutencao_Preventiva Manutencao_Preventiva[]
+  Manutencao_Corretiva  Manutencao_Corretiva[]
+  Documento_Manutencao  Documento_Manutencao[]
+
+  @@map("manutencoes")
+}
+
+enum ManutencaoTipo {
+  corretiva
+  preventiva
+}
+
+enum ManutencaoStatus {
+  executar
+  atrasado
+  realizado
+  execucao
+  espera
+  agendado
+}
+
+model Manutencao_Preventiva {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  previsao_termino DateTime? @default(now())
+  data_termino     DateTime?
+  data_agendado    DateTime?
+
+  id_manutencao String
+  manutencao    Manutencao @relation(fields: [id_manutencao], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  id_item String
+  item    Item   @relation(fields: [id_item], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  id_tarefa String
+  tarefa    Tarefa @relation(fields: [id_tarefa], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("manutencoes_preventivas")
+}
+
+model Manutencao_Corretiva {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  previsao_termino DateTime? @default(now())
+  data_termino     DateTime?
+
+  id_manutencao String
+  manutencao    Manutencao @relation(fields: [id_manutencao], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  id_item String
+  item    Item   @relation(fields: [id_item], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("manutencoes_corretivas")
+}
+
+model Documento {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  path         String
+  filename     String
+  originalName String
+  fileFormat   String
+
+  previsao_termino       DateTime?                @default(now())
+  data_termino           DateTime?
+  Documento_Evaporadora  Documento_Evaporadora[]
+  Documento_Condensadora Documento_Condensadora[]
+  Documento_Manutencao   Documento_Manutencao[]
+
+  @@map("documentos")
+}
+
+model Documento_Evaporadora {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  id_doc    String
+  documento Documento @relation(fields: [id_doc], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  id_evaporadora String
+  evaporadora    Evaporadora @relation(fields: [id_evaporadora], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("documentos_evaporadoras")
+}
+
+model Documento_Condensadora {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  id_doc    String
+  documento Documento @relation(fields: [id_doc], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  id_condensadora String
+  condensadora    Evaporadora @relation(fields: [id_condensadora], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("documentos_condensadoras")
+}
+
+model Documento_Manutencao {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  id_doc    String
+  documento Documento @relation(fields: [id_doc], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  id_manutencao String
+  manutencao    Manutencao @relation(fields: [id_manutencao], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("documentos_manutencoes")
+}
+
+model Usuario {
+  id String @id @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  nome String
+  email String
+  senha String
+  nivel Int
+
+  @@map("usuarios")
+}
