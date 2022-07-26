@@ -1,20 +1,20 @@
-import { ItensRepository } from "../../repositories/interfaces/itens/itens-repository";
+import { SetoresRepository } from "../../repositories/interfaces/setores/setores-repository";
 
 // Interface
-interface CreateItemRequest {
+interface CreateSetorRequest {
   nome: string;
 }
 
 // Service
-export class CreateItemService {
+export class CreateSetorService {
   
   // Recebendo o repositório no construtor
   constructor(
-    private itensRepository: ItensRepository,
+    private setoresRepository: SetoresRepository,
   ) {}
 
   // Executando o service
-  async execute(request: CreateItemRequest) {
+  async execute(request: CreateSetorRequest) {
     
     // Dados do service
     const { nome } = request;
@@ -25,7 +25,7 @@ export class CreateItemService {
     }
 
     // Criando ...
-    await this.itensRepository.create({
+    await this.setoresRepository.create({
       nome,
     })
   }

@@ -12,7 +12,11 @@ export class PrismaItensRepository implements ItensRepository {
   };
 
   async get() {
-    const itens = await prisma.item.findMany();
+    const itens = await prisma.item.findMany({
+      orderBy: {
+        nome: "asc"
+      }
+    });
     return itens;
   };
 

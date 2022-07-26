@@ -16,7 +16,7 @@ export class GetItensService {
 
     // Se não existir item
     if (Object.keys(itens).length == 0) {
-      return new Error("Nenhuma item cadastrado!")
+      return new Error("Nenhum item cadastrado!")
     } 
 
     // Retornando dado para o controller

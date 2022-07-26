@@ -8,20 +8,20 @@ class CreateItemController {
     // Dados do corpo da requisição
     const { nome } = req.body;
 
-    // Repositório do modelo tag do Prisma
+    // Repositório do modelo do Prisma
     const prismaItensRepository = new PrismaItensRepository();
 
-    // Service da tag
+    // Service 
     const createItemService = new CreateItemService(prismaItensRepository);
 
     // Executando o service
-    const tag = await createItemService.execute({
+    const item = await createItemService.execute({
       nome,
     })
 
     // Caso aconteça algum erro, interrompe o processo retorna a mensagem de erro
-    if(tag instanceof Error) {
-      return res.status(400).send(tag.message);
+    if(item instanceof Error) {
+      return res.status(400).send(item.message);
     }
 
     // Retornando mensagem de sucesso para o usuário

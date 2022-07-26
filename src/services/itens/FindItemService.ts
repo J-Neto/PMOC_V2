@@ -1,6 +1,6 @@
 import { ItensRepository } from "../../repositories/interfaces/itens/itens-repository";
 
-// Interface do updateItem
+// Interface
 interface FindItemRequest {
   id:string;
 }

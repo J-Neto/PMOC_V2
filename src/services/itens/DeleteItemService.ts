@@ -1,6 +1,6 @@
 import { ItensRepository } from "../../repositories/interfaces/itens/itens-repository";
 
-// Interface do updateItem
+// Interface 
 interface DeleteItemRequest {
   id:string;
 }
@@ -27,7 +27,7 @@ export class DeleteItemService {
       return new Error("Item inexistente!");
     }
 
-    // Retornando dado para o controller
+    // Deletando
     return this.itensRepository.delete({id});
   }
 }
