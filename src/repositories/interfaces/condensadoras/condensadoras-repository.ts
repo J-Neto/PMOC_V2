@@ -32,7 +32,7 @@ export interface CondensadoraUpdate {
 }
 
 export interface CondensadorasRepository {
-    create: (data: CondensadoraCreateData) => Promise<void>;
+    create: (data: CondensadoraCreateData) => Promise<Object | null>;
     get: () => Promise<Object>;
     find: (data: CondensadoraFind) => Promise<Object | null>;
     findByCodigo: (data: CondensadoraFindByCodigo) => Promise<Object | null>;

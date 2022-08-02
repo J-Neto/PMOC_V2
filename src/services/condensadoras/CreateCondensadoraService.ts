@@ -26,12 +26,12 @@ export class CreateCondensadoraService {
 
     // Se já existir uma condensadora com este código
     if (await this.condensadorasRepository.findByCodigo({ codigo })) {
-      return new Error("O campo nome é obrigatório!");
+      return new Error("Já existe uma condensadora com este código!");
     }
 
     try {
       // Criando ...
-      await this.condensadorasRepository.create({
+      return await this.condensadorasRepository.create({
         codigo, 
         modelo, 
         status, 

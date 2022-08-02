@@ -2,12 +2,15 @@ import { Request, Response } from "express";
 import { PrismaCondensadorasRepository } from "../../repositories/prisma/condensadoras/prisma-condensadoras-repository";
 import { PrismaDocumentosRepository } from "../../repositories/prisma/documentos/prisma-documentos-repository";
 import { PrismaDocumentoCondensadorasRepository } from "../../repositories/prisma/documentos/prisma-documentos_condensadoras-repository";
-import { CreateCondensadoraService } from "../../services/condensadoras/CreateCondensadoraService";
+import { UpdateCondensadoraService } from "../../services/condensadoras/UpdateCondensadoraService";
 import { CreateDocumentoService } from "../../services/documentos/CreateDocumentoService";
 import { CreateDocumento_CondensadoraService } from "../../services/documentos/CreateDocumento_CondensadoraService";
 
-class CreateCondensadoraController {
+class UpdateCondensadoraController {
   async handle(req:Request, res:Response) {
+
+    // Dados do parâmetro da requisição
+    const { id } = req.params;
 
     // Dados do corpo da requisição
     const { codigo, modelo, status, modulo, quadro, local_instalacao } = req.body;
@@ -18,10 +21,11 @@ class CreateCondensadoraController {
     const prismaDocumentosCondensadorasRepository = new PrismaDocumentoCondensadorasRepository();
 
     // Service 
-    const createCondensadoraService = new CreateCondensadoraService(prismaCondensadorasRepository);
+    const updateCondensadoraService = new UpdateCondensadoraService(prismaCondensadorasRepository);
 
     // Executando o service
-    const condensadora = await createCondensadoraService.execute({
+    const condensadora = await updateCondensadoraService.execute({
+      id,
       codigo, 
       modelo, 
       status, 
@@ -65,11 +69,7 @@ class CreateCondensadoraController {
           const id_condensadora = Object(condensadora).id;
 
           // Criando o documento da condensadora
-          const doc_condensadoraCriado = await createDocumentoCondensadoraService.execute({ id_doc, id_condensadora });
-
-          if (doc_condensadoraCriado instanceof Error) {
-            return res.status(400).json(doc_condensadoraCriado);
-          }
+          const doc_condensadoraCriado = await createDocumentoCondensadoraService.execute({ id_doc, id_condensadora })
         }
 
         // Verificando se o documento inserido foi PDF
@@ -93,7 +93,7 @@ class CreateCondensadoraController {
           const id_condensadora = Object(condensadora).id;
 
           // Criando o documento da condensadora
-          const doc_condensadoraCriado = await createDocumentoCondensadoraService.execute({ id_doc, id_condensadora });
+          const doc_condensadoraCriado = await createDocumentoCondensadoraService.execute({ id_doc, id_condensadora })
 
           if (doc_condensadoraCriado instanceof Error) {
             return res.status(400).json(doc_condensadoraCriado);
@@ -107,10 +107,10 @@ class CreateCondensadoraController {
     // Retornando mensagem de sucesso para o usuário
     return res.status(201).send(
       {
-        message:"Condensadora criada com sucesso!",
+        message:"Condensadora atualizada com sucesso!",
       }
     );
   }
 }
 
-export { CreateCondensadoraController };
+export { UpdateCondensadoraController };

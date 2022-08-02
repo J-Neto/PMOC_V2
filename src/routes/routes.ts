@@ -1,5 +1,9 @@
 import { Router } from "express";
+import { multerConfig } from "../config/multer";
+import multer from "multer";
+
 import { CreateCondensadoraController } from "../controllers/condensadoras/CreateCondensadoraController";
+import { CreateDocumentoController } from "../controllers/documentos/CreateDocumentoController";
 import { CreateItemController } from "../controllers/itens/CreateItemController";
 import { DeleteItemController } from "../controllers/itens/DeleteItemController";
 import { FindItemController } from "../controllers/itens/FindItemController";
@@ -22,6 +26,20 @@ import { FindTarefaController } from "../controllers/tarefas/FindTarefaControlle
 import { GetTarefasByItemController } from "../controllers/tarefas/GetTarefasByItemController";
 import { GetTarefasController } from "../controllers/tarefas/GetTarefasController";
 import { UpdateTarefaController } from "../controllers/tarefas/UpdateTarefaController";
+import { UpdateCondensadoraController } from "../controllers/condensadoras/UpdateCondensadoraController";
+import { FindCondensadoraController } from "../controllers/condensadoras/FindCondensadoraController";
+import { DeleteCondensadoraController } from "../controllers/condensadoras/DeleteCondensadoraController";
+import { GetCondensadorasController } from "../controllers/condensadoras/GetCondensadorasController";
+import { CreateEvaporadoraController } from "../controllers/evaporadoras/CreateEvaporadoraController";
+import { UpdateEvaporadoraController } from "../controllers/evaporadoras/UpdateEvaporadoraController";
+import { FindEvaporadoraController } from "../controllers/evaporadoras/FindEvaporadoraController";
+import { DeleteEvaporadoraController } from "../controllers/evaporadoras/DeleteEvaporadoraController";
+import { GetEvaporadorasController } from "../controllers/evaporadoras/GetEvaporadorasController";
+import { CreateEquipamentoController } from "../controllers/equipamentos/CreateEquipamentoController";
+import { UpdateEquipamentoController } from "../controllers/equipamentos/UpdateEquipamentoController";
+import { FindEquipamentoController } from "../controllers/equipamentos/FindEquipamentoController";
+import { DeleteEquipamentoController } from "../controllers/equipamentos/DeleteEquipamentoController";
+import { GetEquipamentosController } from "../controllers/equipamentos/GetEquipamentosController";
 
 const router = Router();
 
@@ -80,6 +98,11 @@ router
   .get(new FindSalaController().handle)
   .delete(new DeleteSalaController().handle)
 
+// Documentos (Multer) ------------------------------------------
+router
+  .route("/documentos")
+  .post(multer(multerConfig).fields([{name: "file"}, {name: "foto"}]), new CreateDocumentoController().handle)
+
 // Relatórios
 router
   .route("/relatorios")
@@ -88,6 +111,37 @@ router
 // Condensadoras
 router
   .route("/condensadoras")
-  .post(new CreateCondensadoraController().handle)
+  .post(multer(multerConfig).fields([{name: "file"}, {name: "foto"}]), new CreateCondensadoraController().handle)
+  .get(new GetCondensadorasController().handle)
+
+router
+  .route("/condensadoras/:id")
+  .put(multer(multerConfig).fields([{name: "file"}, {name: "foto"}]), new UpdateCondensadoraController().handle)
+  .get(new FindCondensadoraController().handle)
+  .delete(new DeleteCondensadoraController().handle)
   
+// Evaporadoras
+router
+  .route("/evaporadoras")
+  .post(multer(multerConfig).fields([{name: "file"}, {name: "foto"}]), new CreateEvaporadoraController().handle)
+  .get(new GetEvaporadorasController().handle)
+
+router
+  .route("/evaporadoras/:id")
+  .put(multer(multerConfig).fields([{name: "file"}, {name: "foto"}]), new UpdateEvaporadoraController().handle)
+  .get(new FindEvaporadoraController().handle)
+  .delete(new DeleteEvaporadoraController().handle)
+
+// Equipamentos
+router
+  .route("/equipamentos")
+  .post(new CreateEquipamentoController().handle)
+  .get(new GetEquipamentosController().handle)
+
+router
+  .route("/equipamentos/:id")
+  .put(new UpdateEquipamentoController().handle)
+  .get(new FindEquipamentoController().handle)
+  .delete(new DeleteEquipamentoController().handle)
+
 export { router };

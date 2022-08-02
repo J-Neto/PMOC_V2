@@ -1,38 +1,38 @@
 import { Request, Response } from "express";
-import { PrismaCondensadorasRepository } from "../../repositories/prisma/condensadoras/prisma-condensadoras-repository";
 import { PrismaDocumentosRepository } from "../../repositories/prisma/documentos/prisma-documentos-repository";
-import { PrismaDocumentoCondensadorasRepository } from "../../repositories/prisma/documentos/prisma-documentos_condensadoras-repository";
-import { CreateCondensadoraService } from "../../services/condensadoras/CreateCondensadoraService";
+import { PrismaDocumentoEvaporadorasRepository } from "../../repositories/prisma/documentos/prisma-documentos_evaporadoras-repository";
+import { PrismaEvaporadorasRepository } from "../../repositories/prisma/evaporadoras/prisma-evaporadoras-repository";
 import { CreateDocumentoService } from "../../services/documentos/CreateDocumentoService";
-import { CreateDocumento_CondensadoraService } from "../../services/documentos/CreateDocumento_CondensadoraService";
+import { CreateDocumento_EvaporadoraService } from "../../services/documentos/CreateDocumento_EvaporadoraService";
+import { CreateEvaporadoraService } from "../../services/evaporadoras/CreateEvaporadoraService";
 
-class CreateCondensadoraController {
+class CreateEvaporadoraController {
   async handle(req:Request, res:Response) {
 
     // Dados do corpo da requisição
-    const { codigo, modelo, status, modulo, quadro, local_instalacao } = req.body;
+    const { codigo, modelo, marca, potencia, status, quadro } = req.body;
 
     // Repositório do modelo do Prisma
-    const prismaCondensadorasRepository = new PrismaCondensadorasRepository();
+    const prismaEvaporadorasRepository = new PrismaEvaporadorasRepository();
     const prismaDocumentosRepository = new PrismaDocumentosRepository();
-    const prismaDocumentosCondensadorasRepository = new PrismaDocumentoCondensadorasRepository();
+    const prismaDocumentosEvaporadorasRepository = new PrismaDocumentoEvaporadorasRepository();
 
     // Service 
-    const createCondensadoraService = new CreateCondensadoraService(prismaCondensadorasRepository);
+    const createEvaporadoraService = new CreateEvaporadoraService(prismaEvaporadorasRepository);
 
     // Executando o service
-    const condensadora = await createCondensadoraService.execute({
+    const evaporadora = await createEvaporadoraService.execute({
       codigo, 
       modelo, 
+      marca,
+      potencia,
       status, 
-      modulo, 
       quadro, 
-      local_instalacao
     })
 
     // Caso aconteça algum erro, interrompe o processo retorna a mensagem de erro
-    if(condensadora instanceof Error) {
-      return res.status(400).send(condensadora.message);
+    if(evaporadora instanceof Error) {
+      return res.status(400).send(evaporadora.message);
     }
 
     // Criando os documentos
@@ -42,7 +42,7 @@ class CreateCondensadoraController {
       if(Object.keys(req.files).length > 0) {
 
         const createDocumentoService = new CreateDocumentoService(prismaDocumentosRepository);
-        const createDocumentoCondensadoraService = new CreateDocumento_CondensadoraService(prismaDocumentosCondensadorasRepository);
+        const createDocumentoEvaporadoraService = new CreateDocumento_EvaporadoraService(prismaDocumentosEvaporadorasRepository);
 
         // Verificando se o documento inserido foi PNG
         if (Object.keys(req.files).includes("foto")) {
@@ -62,13 +62,13 @@ class CreateCondensadoraController {
           }
 
           const id_doc = Object(docCriado).id;
-          const id_condensadora = Object(condensadora).id;
+          const id_evaporadora = Object(evaporadora).id;
 
-          // Criando o documento da condensadora
-          const doc_condensadoraCriado = await createDocumentoCondensadoraService.execute({ id_doc, id_condensadora });
+          // Criando o documento da evaporadora
+          const doc_evaporadoraCriado = await createDocumentoEvaporadoraService.execute({ id_doc, id_evaporadora });
 
-          if (doc_condensadoraCriado instanceof Error) {
-            return res.status(400).json(doc_condensadoraCriado);
+          if (doc_evaporadoraCriado instanceof Error) {
+            return res.status(400).json(doc_evaporadoraCriado);
           }
         }
 
@@ -90,13 +90,13 @@ class CreateCondensadoraController {
           }
 
           const id_doc = Object(docCriado).id;
-          const id_condensadora = Object(condensadora).id;
+          const id_evaporadora = Object(evaporadora).id;
 
-          // Criando o documento da condensadora
-          const doc_condensadoraCriado = await createDocumentoCondensadoraService.execute({ id_doc, id_condensadora });
+          // Criando o documento da evaporadora
+          const doc_evaporadoraCriado = await createDocumentoEvaporadoraService.execute({ id_doc, id_evaporadora });
 
-          if (doc_condensadoraCriado instanceof Error) {
-            return res.status(400).json(doc_condensadoraCriado);
+          if (doc_evaporadoraCriado instanceof Error) {
+            return res.status(400).json(doc_evaporadoraCriado);
           }
         }
       }
@@ -107,10 +107,10 @@ class CreateCondensadoraController {
     // Retornando mensagem de sucesso para o usuário
     return res.status(201).send(
       {
-        message:"Condensadora criada com sucesso!",
+        message:"Evaporadora criada com sucesso!",
       }
     );
   }
 }
 
-export { CreateCondensadoraController };
+export { CreateEvaporadoraController };

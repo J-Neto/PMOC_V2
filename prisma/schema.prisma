@@ -160,7 +160,7 @@ model Equipamento {
   tipo   EquipamentoTipo
   linha  String?
   codigo String            @unique
-  status EquipamentoStatus
+  status EquipamentoStatus @default(normal)
 
   id_condensadora String
   condensadora    Condensadora @relation(fields: [id_condensadora], references: [id], onDelete: Cascade, onUpdate: Cascade)
@@ -179,6 +179,7 @@ enum EquipamentoTipo {
 enum EquipamentoStatus {
   normal
   defeito
+  parado
 }
 
 model Manutencao {
@@ -252,6 +253,7 @@ model Manutencao_Corretiva {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
+  descricao String
   previsao_termino DateTime? @default(now())
   data_termino     DateTime?
 
@@ -275,8 +277,6 @@ model Documento {
   originalName String
   fileFormat   String
 
-  previsao_termino       DateTime?                @default(now())
-  data_termino           DateTime?
   Documento_Evaporadora  Documento_Evaporadora[]
   Documento_Condensadora Documento_Condensadora[]
   Documento_Manutencao   Documento_Manutencao[]

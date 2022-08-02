@@ -1,5 +1,7 @@
 import express from "express";
 import { router } from "./routes/routes";
+import path from "path";
+
 // import cors from "cors";
 
 const app = express();
@@ -16,6 +18,10 @@ const app = express();
 // ---------------------------------------------------------------------------
 
 app.use(express.json());
+
+// Pasta aonde os uploads serão armazenados -----------------------------------
+app.use("/files", express.static(path.resolve(__dirname, '..','uploads')))
+
 
 app.use(router);
 

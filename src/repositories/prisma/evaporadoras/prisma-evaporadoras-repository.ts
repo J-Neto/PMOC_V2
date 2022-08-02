@@ -1,24 +1,24 @@
 import { prisma } from "../../../prisma";
-import { CondensadoraCreateData, CondensadoraDelete, CondensadoraFind, CondensadoraFindByCodigo, CondensadorasRepository, CondensadoraUpdate} from "../../interfaces/condensadoras/condensadoras-repository";
 import { equipamento_status } from "../../interfaces/equipamentos/equipamentos-repository";
+import { EvaporadoraCreateData, EvaporadoraDelete, EvaporadoraFind, EvaporadoraFindByCodigo, EvaporadorasRepository, EvaporadoraUpdate} from "../../interfaces/evaporadoras/evaporadoras-repository";
 
-export class PrismaCondensadorasRepository implements CondensadorasRepository {
+export class PrismaEvaporadorasRepository implements EvaporadorasRepository {
   
-  async create({ codigo, modelo, status, modulo, quadro, local_instalacao }: CondensadoraCreateData) {
-    return await prisma.condensadora.create({
+  async create({ codigo, modelo, marca, potencia, status, quadro }: EvaporadoraCreateData) {
+    return await prisma.evaporadora.create({
       data: {
         codigo, 
         modelo, 
+        marca,
+        potencia,
         status, 
-        modulo, 
         quadro, 
-        local_instalacao
       }
     });
   };
 
   async get() {
-    const itens = await prisma.condensadora.findMany({
+    const itens = await prisma.evaporadora.findMany({
       orderBy: {
         codigo: "asc"
       }
@@ -26,56 +26,56 @@ export class PrismaCondensadorasRepository implements CondensadorasRepository {
     return itens;
   };
 
-  async find({ id }: CondensadoraFind ) {
-    const condensadora = await prisma.condensadora.findUnique(
+  async find({ id }: EvaporadoraFind ) {
+    const evaporadora = await prisma.evaporadora.findUnique(
       {
         where: {
           id,
         }
       }
     );
-    return condensadora;
+    return evaporadora;
   };
 
-  async findByCodigo({ codigo }: CondensadoraFindByCodigo) {
-    const condensadora = await prisma.condensadora.findFirst({
+  async findByCodigo({ codigo }: EvaporadoraFindByCodigo) {
+    const evaporadora = await prisma.evaporadora.findFirst({
       where: {
         codigo
       }
     })
 
-    return condensadora;
+    return evaporadora;
   }
 
-  async delete({ id }: CondensadoraDelete){
-    await prisma.condensadora.delete({
+  async delete({ id }: EvaporadoraDelete){
+    await prisma.evaporadora.delete({
       where: {
         id,
       }
     });
   };
 
-  async update({ id, codigo, modelo, status, modulo, quadro, local_instalacao }: CondensadoraUpdate){
+  async update({ id, codigo, modelo, marca, potencia, status, quadro }: EvaporadoraUpdate){
     
-    // Atualizando a condensadora
-    await prisma.condensadora.update({
+    // Atualizando a evaporadora
+    await prisma.evaporadora.update({
       where: {
         id,
       },
       data: {
         codigo, 
         modelo, 
+        marca,
+        potencia,
         status, 
-        modulo, 
         quadro, 
-        local_instalacao
       }
     });
 
-    // Buscando se há equipamento cadastrado com essa condensadora
+    // Buscando se há equipamento cadastrado com essa evaporadora
     const equipamento = await prisma.equipamento.findFirst({
       where: {
-        id_condensadora: id
+        id_evaporadora: id
       }
     });
 
@@ -90,13 +90,13 @@ export class PrismaCondensadorasRepository implements CondensadorasRepository {
       if (status) {
         
         if (status == "defeito") {
-          const evaporadora = await prisma.evaporadora.findFirst({
+          const condensadora = await prisma.condensadora.findFirst({
             where: {
-              id: equipamento.id_evaporadora,
+              id: equipamento.id_condensadora,
             }
           });
 
-          if(Object(evaporadora).status != "parado") {
+          if(Object(condensadora).status != "parado") {
             status_equip = "defeito";
           }
         }
@@ -106,17 +106,17 @@ export class PrismaCondensadorasRepository implements CondensadorasRepository {
         }
 
         if (status == "normal") {
-          const evaporadora = await prisma.evaporadora.findFirst({
+          const condensadora = await prisma.condensadora.findFirst({
             where: {
-              id: equipamento.id_evaporadora,
+              id: equipamento.id_condensadora,
             }
           });
 
-          if(Object(evaporadora).status == "normal") {
+          if(Object(condensadora).status == "normal") {
             status_equip = "normal";
           }
           else {
-            status_equip = Object(evaporadora).status;
+            status_equip = Object(condensadora).status;
           }
         }
       }

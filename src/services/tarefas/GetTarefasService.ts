@@ -17,7 +17,7 @@ export class GetTarefasService {
     // Se não tiver tarefas cadastradas no sistema
     if(Object.keys(tarefas).length == 0) {
       // Retorna erro
-      return new Error("Tarefas não existente!");
+      return new Error("Tarefas não existentes!");
     }
 
     // Retornando dado para o controller ...

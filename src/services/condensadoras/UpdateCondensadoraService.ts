@@ -3,9 +3,9 @@ import { CondensadorasRepository, condensadora_status } from "../../repositories
 // Interface
 interface UpdateCondensadoraRequest {
   id: string;
-  codigo: string;
+  codigo?: string;
   modelo?: string;
-  status: condensadora_status;
+  status?: condensadora_status;
   modulo?: string;
   quadro?: string;
   local_instalacao?: string;
@@ -29,9 +29,12 @@ export class UpdateCondensadoraService {
       return new Error("Condensadora inexistente!");
     }
 
-    // Se já existir uma condensadora com este código
-    if (await this.condensadorasRepository.findByCodigo({ codigo })) {
-      return new Error("O campo nome é obrigatório!");
+    if (codigo) {
+      
+      // Se já existir uma condensadora com este código
+      if (await this.condensadorasRepository.findByCodigo({ codigo })) {
+        return new Error("Condensadora já existente!");
+      }
     }
 
     try {
