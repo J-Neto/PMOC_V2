@@ -1,3 +1,4 @@
+import { notEqual } from "assert";
 import { prisma } from "../../../prisma";
 import { EquipamentoCreateData, EquipamentoDelete, EquipamentoFind, EquipamentoFindByCondensadora, EquipamentoFindByEvaporadora, EquipamentoFind_SPLIT_ByCondensadora, EquipamentosRepository, EquipamentoUpdate} from "../../interfaces/equipamentos/equipamentos-repository";
 
@@ -38,11 +39,11 @@ export class PrismaEquipamentosRepository implements EquipamentosRepository {
   };
 
   async findByCondensadora({ id_condensadora }: EquipamentoFindByCondensadora) {
-    return await prisma.equipamento.findFirst(
+    return await prisma.equipamento.findMany(
       {
         where: {
-          id_condensadora
-        }
+          id_condensadora,
+        },
       }
     )
   }
@@ -57,7 +58,7 @@ export class PrismaEquipamentosRepository implements EquipamentosRepository {
   }
 
   async findByEvaporadora({ id_evaporadora }: EquipamentoFindByEvaporadora) {
-    return await prisma.equipamento.findFirst(
+    return await prisma.equipamento.findMany(
       {
         where: {
           id_evaporadora
