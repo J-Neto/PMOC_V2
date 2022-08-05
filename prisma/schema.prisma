@@ -105,6 +105,7 @@ model Condensadora {
   codigo           String             @unique
   modelo           String?
   status           CondensadoraStatus
+  status_anterior CondensadoraStatus?
   modulo           String?
   quadro           String?
   local_instalacao String?
@@ -132,6 +133,7 @@ model Evaporadora {
   marca    String?
   potencia Float             @default(0)
   status   EvaporadoraStatus
+  status_anterior EvaporadoraStatus?
   quadro   String?
 
   id_sala String?

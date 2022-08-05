@@ -40,6 +40,8 @@ import { UpdateEquipamentoController } from "../controllers/equipamentos/UpdateE
 import { FindEquipamentoController } from "../controllers/equipamentos/FindEquipamentoController";
 import { DeleteEquipamentoController } from "../controllers/equipamentos/DeleteEquipamentoController";
 import { GetEquipamentosController } from "../controllers/equipamentos/GetEquipamentosController";
+import { CreateManutencaoController } from "../controllers/manutencoes/CreateManutencaoController";
+import { GetManutencoesController } from "../controllers/manutencoes/GetManutencoesController";
 
 const router = Router();
 
@@ -144,4 +146,10 @@ router
   .get(new FindEquipamentoController().handle)
   .delete(new DeleteEquipamentoController().handle)
 
+// Manutenções
+router
+  .route("/manutencoes/")
+  .post(new CreateManutencaoController().handle)
+  .get(new GetManutencoesController().handle)
+  
 export { router };

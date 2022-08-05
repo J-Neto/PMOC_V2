@@ -6,7 +6,9 @@ export interface EvaporadoraCreateData {
     marca?: string;
     potencia: number;
     status: evaporadora_status;
+    status_anterior?: evaporadora_status;
     quadro?: string;
+    id_sala?: string;
 }
 
 export interface EvaporadoraFind {
@@ -28,7 +30,9 @@ export interface EvaporadoraUpdate {
     marca?: string;
     potencia?: number;
     status?: evaporadora_status;
+    status_anterior?: evaporadora_status;
     quadro?: string;
+    id_sala?: string;
 }
 
 export interface EvaporadorasRepository {

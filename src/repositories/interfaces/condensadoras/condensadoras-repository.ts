@@ -4,6 +4,7 @@ export interface CondensadoraCreateData {
     codigo: string;
     modelo?: string;
     status: condensadora_status;
+    status_anterior?: condensadora_status;
     modulo?: string;
     quadro?: string;
     local_instalacao?: string;
@@ -26,6 +27,7 @@ export interface CondensadoraUpdate {
     codigo?: string;
     modelo?: string;
     status?: condensadora_status;
+    status_anterior?: condensadora_status;
     modulo?: string;
     quadro?: string;
     local_instalacao?: string;

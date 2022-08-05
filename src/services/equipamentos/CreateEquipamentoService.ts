@@ -62,7 +62,9 @@ export class CreateEquipamentoService {
     }
 
     // Caso a evaporadora existe, é preciso verificar se ela já está cadastrada em algum outro equipamento
-    if (await this.equipamentosRepository.findByEvaporadora({ id_evaporadora })) {
+    const equipamento_achado = await this.equipamentosRepository.findByEvaporadora({ id_evaporadora })
+    
+    if (Object(equipamento_achado) > 0) {
       return new Error("Evaporadora já cadastrada em outro equipamento!");
     }
 

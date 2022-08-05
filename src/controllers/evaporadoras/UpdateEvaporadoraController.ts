@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { PrismaDocumentosRepository } from "../../repositories/prisma/documentos/prisma-documentos-repository";
 import { PrismaDocumentoEvaporadorasRepository } from "../../repositories/prisma/documentos/prisma-documentos_evaporadoras-repository";
 import { PrismaEvaporadorasRepository } from "../../repositories/prisma/evaporadoras/prisma-evaporadoras-repository";
+import { PrismaSalasRepository } from "../../repositories/prisma/salas/prisma-salas-repository";
 import { CreateDocumentoService } from "../../services/documentos/CreateDocumentoService";
 import { CreateDocumento_EvaporadoraService } from "../../services/documentos/CreateDocumento_EvaporadoraService";
 import { UpdateEvaporadoraService } from "../../services/evaporadoras/UpdateEvaporadoraService";
@@ -13,15 +14,16 @@ class UpdateEvaporadoraController {
     const { id } = req.params;
 
     // Dados do corpo da requisição
-    const { codigo, modelo, marca, potencia, status, quadro } = req.body;
+    const { codigo, modelo, marca, potencia, status, quadro, id_sala } = req.body;
 
     // Repositório do modelo do Prisma
     const prismaEvaporadorasRepository = new PrismaEvaporadorasRepository();
     const prismaDocumentosRepository = new PrismaDocumentosRepository();
     const prismaDocumentosEvaporadorasRepository = new PrismaDocumentoEvaporadorasRepository();
+    const prismaSalasRepository = new PrismaSalasRepository();
 
     // Service 
-    const updateEvaporadoraService = new UpdateEvaporadoraService(prismaEvaporadorasRepository);
+    const updateEvaporadoraService = new UpdateEvaporadoraService(prismaEvaporadorasRepository, prismaSalasRepository);
 
     // Executando o service
     const evaporadora = await updateEvaporadoraService.execute({
@@ -32,6 +34,7 @@ class UpdateEvaporadoraController {
       potencia,
       status, 
       quadro, 
+      id_sala
     })
 
     // Caso aconteça algum erro, interrompe o processo retorna a mensagem de erro

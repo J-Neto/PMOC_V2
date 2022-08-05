@@ -25,7 +25,9 @@ export class UpdateCondensadoraService {
     // Dados do service
     const { id, codigo, modelo, status, modulo, quadro, local_instalacao } = request;
 
-    if (!(await this.condensadorasRepository.find({ id }))) {
+    const condensadora = await this.condensadorasRepository.find({ id });
+
+    if (!condensadora) {
       return new Error("Condensadora inexistente!");
     }
 
@@ -37,6 +39,9 @@ export class UpdateCondensadoraService {
       }
     }
 
+    // Guardaremos o status anterior
+    const status_anterior = Object(condensadora).status;
+
     try {
       // Criando ...
       await this.condensadorasRepository.update({
@@ -44,6 +49,7 @@ export class UpdateCondensadoraService {
         codigo, 
         modelo, 
         status, 
+        status_anterior,
         modulo, 
         quadro, 
         local_instalacao

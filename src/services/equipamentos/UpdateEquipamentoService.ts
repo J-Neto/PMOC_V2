@@ -1,5 +1,5 @@
 import { CondensadorasRepository } from "../../repositories/interfaces/condensadoras/condensadoras-repository";
-import { EquipamentosRepository, equipamento_status, equipamento_tipo } from "../../repositories/interfaces/equipamentos/equipamentos-repository";
+import { EquipamentosRepository, equipamento_tipo } from "../../repositories/interfaces/equipamentos/equipamentos-repository";
 import { EvaporadorasRepository } from "../../repositories/interfaces/evaporadoras/evaporadoras-repository";
 
 // ANTES DE TUDO

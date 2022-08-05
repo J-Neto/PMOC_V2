@@ -4,7 +4,7 @@ import { EvaporadoraCreateData, EvaporadoraDelete, EvaporadoraFind, EvaporadoraF
 
 export class PrismaEvaporadorasRepository implements EvaporadorasRepository {
   
-  async create({ codigo, modelo, marca, potencia, status, quadro }: EvaporadoraCreateData) {
+  async create({ codigo, modelo, marca, potencia, status, quadro, id_sala }: EvaporadoraCreateData) {
     return await prisma.evaporadora.create({
       data: {
         codigo, 
@@ -13,6 +13,7 @@ export class PrismaEvaporadorasRepository implements EvaporadorasRepository {
         potencia,
         status, 
         quadro, 
+        id_sala
       }
     });
   };
@@ -55,7 +56,7 @@ export class PrismaEvaporadorasRepository implements EvaporadorasRepository {
     });
   };
 
-  async update({ id, codigo, modelo, marca, potencia, status, quadro }: EvaporadoraUpdate){
+  async update({ id, codigo, modelo, marca, potencia, status, status_anterior, quadro, id_sala }: EvaporadoraUpdate){
     
     // Atualizando a evaporadora
     await prisma.evaporadora.update({
@@ -68,7 +69,9 @@ export class PrismaEvaporadorasRepository implements EvaporadorasRepository {
         marca,
         potencia,
         status, 
+        status_anterior,
         quadro, 
+        id_sala
       }
     });
 
