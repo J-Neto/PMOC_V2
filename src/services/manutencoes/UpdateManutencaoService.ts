@@ -22,9 +22,9 @@ import { manutencao_status, manutencao_tipo, ManutencoesRepository } from "../..
 // Interface
 interface UpdateManutencaoRequest {
     id: string;
-    tipo: manutencao_tipo;
-    status: manutencao_status;
-    tec_responsavel: string;
+    tipo?: manutencao_tipo;
+    status?: manutencao_status;
+    tec_responsavel?: string;
     custo?: number;
     previsao_termino?: string;
     id_condensadora?: string;
@@ -78,34 +78,6 @@ export class UpdateManutencaoService {
         if (!condensadora_nova) {
             return new Error("Condensadora inexistente!")
         }
-
-        // Status antigo
-        const status_anterior = Object(condensadora_nova).status;
-        
-        // Se existe, então alteramos seu status para "defeito"
-        await this.condensadorasRepository.update({
-            id: Object(condensadora_nova).id,
-            status: "defeito",
-            status_anterior
-        })
-
-        // Agora iremos verificar se a manutenção atual possui alguma condensadora
-        if (manutencao_atual) {
-            condensadora = await this.condensadorasRepository.find({ id: Object(manutencao_atual).id_condensadora })
-
-            // Se ela tiver, iremos verificar qual o seu status atual
-            if(condensadora) {
-                // Se for "parado", não faremos nada
-                // Caso contrário, iremos reverter o status
-                if (Object(condensadora).status != "parado") {
-                    await this.condensadorasRepository.update({
-                        id: Object(condensadora).id,
-                        status: Object(condensadora).status_anterior
-                    })
-                }
-            }
-        }
-
     }
 
     // O mesmo para a evaporadora ...
@@ -120,14 +92,11 @@ export class UpdateManutencaoService {
         }
     }
 
-
-
-
-
     const data = new Date(Object(previsao_termino))
 
-    // Criando a manutenção...
-    const manutencao = await this.manutencoesRepository.create({
+    // Atualizando a manutenção...
+    const manutencao = await this.manutencoesRepository.update({
+        id,
         tipo, 
         status, 
         tec_responsavel, 
@@ -137,10 +106,6 @@ export class UpdateManutencaoService {
         id_evaporadora
     })
 
-    if (manutencao instanceof Error) {
-        return new Error("Erro ao criar manutenção");
-    }
-
     // Agora vamos para a divisão ...
     // MANUTENÇÃO CORRETIVA ################################################################################################################
     if (tipo == "corretiva") {
@@ -148,44 +113,66 @@ export class UpdateManutencaoService {
         // Se ela é corretiva, então significa dizer que os DISPOSITIVOS e EQUIPAMENTOS os quais iremos realizar a manutenção estão defeituosos
         // Então iremos alterar seus status
 
-        // Aqui estamos verificando se a condensadora não é undefined, ou seja, utilizando os dados das verificaçoes realizadas anteriormente
-        if (condensadora) {
-
-            // Agora vamos alterar seu status
-            Object(condensadora).status = "defeito";
+        // Se ela tiver inserido uma condensadora nova, iremos alterar o status da antiga
+        if (condensadora_nova) {
+            // Se a condensadora nova não existir, ela não irá chegar neste ponto, pois a verificação de segurança já nos garante isso
+            // Vamos salvar o seu status antigo
+            const status_anterior = Object(condensadora_nova).status;
             
-            // Agora iremos atualizar no banco a condensadora com os novos dados
-            try {
-                await this.condensadorasRepository.update({
-                    id: Object(condensadora).id,
-                    status: Object(condensadora).status,
-                })
-            } catch (err) {
-                return err;
+            // Então alteramos seu status atual para "defeito"
+            await this.condensadorasRepository.update({
+                id: Object(condensadora_nova).id,
+                status: "defeito",
+                status_anterior
+            })
+
+            // Agora iremos verificar se a manutenção atual possui alguma condensadora
+            if (manutencao_atual) {
+                condensadora = await this.condensadorasRepository.find({ id: Object(manutencao_atual).id_condensadora })
+
+                // Se ela tiver ...
+                if(condensadora) {
+                    // ... Iremos reverter o status atual para o anterior
+                    await this.condensadorasRepository.update({
+                        id: Object(condensadora).id,
+                        status: Object(condensadora).status_anterior
+                    })
+                }
             }
         }
 
         // O mesmo vale para evaporadora
-        if (evaporadora) {
+        // Se ela tiver inserido uma evaporadora nova, iremos alterar o status da antiga
+        if (evaporadora_nova) {
 
-            // Agora vamos alterar seu status
-            Object(evaporadora).status = "defeito";
-            
-            // Agora iremos atualizar no banco a evaporadora com os novos dados
-            try {
-                await this.evaporadorasRepository.update({
-                    id: Object(evaporadora).id,
-                    status: Object(evaporadora).status,
-                })
-            } catch (err) {
-                return err;
-            }            
+            // Status antigo
+            const status_anterior = Object(evaporadora_nova).status;
+
+            // Se existe, então alteramos seu status para "defeito"
+            await this.evaporadorasRepository.update({
+                id: Object(evaporadora_nova).id,
+                status: "defeito",
+                status_anterior
+            })
+
+            // Agora iremos verificar se a manutenção atual possui alguma evaporadora
+            if (manutencao_atual) {
+                evaporadora = await this.evaporadorasRepository.find({ id: Object(manutencao_atual).id_evaporadora })
+
+                // Se ela tiver ...
+                if(evaporadora) {
+                    // ... Iremos reverter o status atual para o anterior
+                    await this.evaporadorasRepository.update({
+                        id: Object(evaporadora).id,
+                        status: Object(evaporadora).status_anterior
+                    })
+                }
+            }        
         }
 
         // Criando a manutenção CORRETIVA
         // Seu funcionamento dá-se da seguinte maneira:
-            // Os itens selecionados vem em uma lista, onde os iremos percorrer e criar uma nova manutenção CORRETIVA para cada item
-
+        // Os itens selecionados vem em uma lista, onde os iremos percorrer e criar uma nova manutenção CORRETIVA para cada item
 
         // Variável de controle
         let i = 0;

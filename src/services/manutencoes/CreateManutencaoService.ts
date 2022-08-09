@@ -3,6 +3,7 @@ import { EvaporadorasRepository } from "../../repositories/interfaces/evaporador
 import { ManutencoesCorretivasRepository } from "../../repositories/interfaces/manutencoes/manutencoes-corretivas-repository";
 import { ManutencoesPreventivasRepository } from "../../repositories/interfaces/manutencoes/manutencoes-preventivas-repository";
 import { manutencao_status, manutencao_tipo, ManutencoesRepository } from "../../repositories/interfaces/manutencoes/manutencoes-repository";
+import { RelatoriosRepository } from "../../repositories/interfaces/relatorios/relatorios-repository";
 
 // FUNCIONAMENTO DAS MANUTENÇÕES ################################################################################################################
 // Inicialmente, o usuário pode decidir realizar a manutenção de apenas uma condensadora, evaporadora ou ambos juntos;
@@ -51,7 +52,8 @@ export class CreateManutencaoService {
     private manutecoesCorretivasRepository: ManutencoesCorretivasRepository,
     private manutencoesPreventivasRepository: ManutencoesPreventivasRepository,
     private condensadorasRepository: CondensadorasRepository,
-    private evaporadorasRepository: EvaporadorasRepository
+    private evaporadorasRepository: EvaporadorasRepository,
+    private relatoriosRepository: RelatoriosRepository
   ) {}
 
   // Executando o service
@@ -115,11 +117,14 @@ export class CreateManutencaoService {
         // Aqui estamos verificando se a condensadora não é undefined, ou seja, utilizando os dados das verificaçoes realizadas anteriormente
         if (condensadora) {
 
-            // Só iremos alterar seu status se o atual for "normal"
-            if (Object(condensadora).status == "normal") {
+            // Guardaremos o status anterior
+            let status_anterior = Object(condensadora).status_anterior;
 
-                // Guardamos o status atual que será o anterior
-                Object(condensadora).status_anterior = "normal";
+            // Se estiver com o status "normal", se torna defeito
+            if (Object(condensadora).status == "normal") {
+                
+                // Guardando o status atual que será o antigo
+                status_anterior = Object(condensadora).status;
 
                 // Agora vamos alterar seu status
                 Object(condensadora).status = "defeito";
@@ -130,7 +135,7 @@ export class CreateManutencaoService {
                 await this.condensadorasRepository.update({
                     id: Object(condensadora).id,
                     status: Object(condensadora).status,
-                    status_anterior: Object(condensadora).status_anterior
+                    status_anterior: status_anterior
                 })
             } catch (err) {
                 return err;
@@ -140,18 +145,28 @@ export class CreateManutencaoService {
         // O mesmo vale para evaporadora
         if (evaporadora) {
 
+            // Guardaremos o status anterior
+            let status_anterior = Object(evaporadora).status;
+
+            // Se estiver com o status "normal", se torna defeito
+            if (Object(evaporadora).status == "normal") {
+                
+                // Guardando o status atual que será o antigo
+                status_anterior = Object(evaporadora).status;
+
+                // Agora vamos alterar seu status
+                Object(evaporadora).status = "defeito";
+            }
+
             // Agora vamos alterar seu status
             Object(evaporadora).status = "defeito";
-            
-            // Guardamos o status atual que será o anterior
-            Object(evaporadora).status_anterior = "normal";
 
             // Agora iremos atualizar no banco a evaporadora com os novos dados
             try {
                 await this.evaporadorasRepository.update({
                     id: Object(evaporadora).id,
                     status: Object(evaporadora).status,
-                    status_anterior: Object(evaporadora).status_anterior
+                    status_anterior: status_anterior
                 })
             } catch (err) {
                 return err;

@@ -1,6 +1,5 @@
 import { prisma } from "../../../prisma";
-import { equipamento_status } from "../../interfaces/equipamentos/equipamentos-repository";
-import { ManutencaoCreateData, ManutencaoDelete, ManutencaoFind, ManutencoesRepository, ManutencaoUpdate, ManutencaoFindByCondensadora, ManutencaoFindByEvaporadora} from "../../interfaces/manutencoes/manutencoes-repository";
+import { ManutencaoCreateData, ManutencaoDelete, ManutencaoFind, ManutencoesRepository, ManutencaoUpdate, ManutencaoFindByCondensadora, ManutencaoFindByEvaporadora, ManutencaoStart, ManutencaoPause, ManutencaoFinish} from "../../interfaces/manutencoes/manutencoes-repository";
 
 export class PrismaManutencoesRepository implements ManutencoesRepository {
   
@@ -53,6 +52,7 @@ export class PrismaManutencoesRepository implements ManutencoesRepository {
             marca: true,
             potencia: true,
             status: true,
+            status_anterior: true,
             quadro: true,
             id_sala: true,
             created_at: true,
@@ -136,12 +136,20 @@ export class PrismaManutencoesRepository implements ManutencoesRepository {
         id,
       }
     });
+    // Adicionando registro de criação aos relatórios
+    await prisma.relatorio.create({
+      data: {
+        id_entidade: id,
+        acao: "excluido",
+      }
+    })
+
   };
 
   async update({ id, tipo, status, comentario, tec_responsavel, custo, agendado, foto ,previsao_termino, data_termino, data_agendado, id_condensadora, id_evaporadora }: ManutencaoUpdate){
     
     // Atualizando a manutencao
-    await prisma.manutencao.update({
+    return await prisma.manutencao.update({
       where: {
         id,
       },
@@ -162,4 +170,64 @@ export class PrismaManutencoesRepository implements ManutencoesRepository {
     });
   };
 
+  async start({ id, status,agendado }: ManutencaoStart) {
+    const manutencao = await prisma.manutencao.update({
+      where: {
+        id
+      },
+      data: {
+        status,
+        agendado
+      }
+    });
+
+    // Adicionando registro de criação aos relatórios
+    await prisma.relatorio.create({
+      data: {
+        id_entidade: manutencao.id,
+        acao: manutencao.status,
+      }
+    })
+  };
+
+  async pause({ id, status, comentario}: ManutencaoPause) {
+    const manutencao = await prisma.manutencao.update({
+      where: {
+        id
+      },
+      data: {
+        status,
+        comentario
+      }
+    });
+
+    // Adicionando registro de criação aos relatórios
+    await prisma.relatorio.create({
+      data: {
+        id_entidade: manutencao.id,
+        acao: manutencao.status,
+        comentario
+      }
+    })
+  }
+
+  async finish({ id, status }: ManutencaoFinish) {
+    const manutencao = await prisma.manutencao.update({
+      where: {
+        id
+      },
+      data: {
+        status,
+        data_termino: new Date()
+      }
+    });
+
+    // Adicionando registro de criação aos relatórios
+    await prisma.relatorio.create({
+      data: {
+        id_entidade: manutencao.id,
+        acao: manutencao.status,
+      }
+    });
+  }
 }

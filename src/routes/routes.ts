@@ -42,6 +42,13 @@ import { DeleteEquipamentoController } from "../controllers/equipamentos/DeleteE
 import { GetEquipamentosController } from "../controllers/equipamentos/GetEquipamentosController";
 import { CreateManutencaoController } from "../controllers/manutencoes/CreateManutencaoController";
 import { GetManutencoesController } from "../controllers/manutencoes/GetManutencoesController";
+import { DeleteManutencaoController } from "../controllers/manutencoes/DeleteManutencaoController";
+import { UpdateManutencaoController } from "../controllers/manutencoes/UpdateManutencaoController";
+import { StartManutencaoController } from "../controllers/manutencoes/StartManutencaoController";
+import { FindManutencaoController } from "../controllers/manutencoes/FindManutencaoController";
+import { PauseManutencaoController } from "../controllers/manutencoes/PauseManutencaoController";
+import { FinishManutencaoController } from "../controllers/manutencoes/FinishManutencaoController";
+import { ScheduleManutencaoController } from "../controllers/manutencoes/ScheduleManutencaoController";
 
 const router = Router();
 
@@ -152,4 +159,25 @@ router
   .post(new CreateManutencaoController().handle)
   .get(new GetManutencoesController().handle)
   
+router
+  .route("/manutencoes/:id")
+  .put(multer(multerConfig).fields([{name: "file"}, {name: "foto"}]), new UpdateManutencaoController().handle)
+  .delete(new DeleteManutencaoController().handle)
+  .get(new FindManutencaoController().handle)
+
+router
+  .route("/manutencoes/:id/iniciar")
+  .post(new StartManutencaoController().handle);
+
+router
+  .route("/manutencoes/:id/pausar")
+  .post(new PauseManutencaoController().handle)
+
+router
+  .route("/manutencoes/:id/finalizar")
+  .post(new FinishManutencaoController().handle)
+
+router
+  .route("/manutencoes_agendamentos")
+  .get(new ScheduleManutencaoController().handle)
 export { router };

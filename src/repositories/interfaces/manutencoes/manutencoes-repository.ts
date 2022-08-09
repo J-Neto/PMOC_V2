@@ -48,6 +48,23 @@ export interface ManutencaoUpdate {
     id_evaporadora?: string;
 }
 
+export interface ManutencaoStart {
+    id: string;
+    status: manutencao_status;
+    agendado?: boolean;
+}
+
+export interface ManutencaoPause {
+    id: string;
+    status: manutencao_status;
+    comentario: string;
+}
+
+export interface ManutencaoFinish {
+    id: string;
+    status: manutencao_status;
+}
+
 export interface ManutencoesRepository {
     create: (data: ManutencaoCreateData) => Promise<Object | null>;
     get: () => Promise<Object>;
@@ -55,5 +72,8 @@ export interface ManutencoesRepository {
     findByCondensadora: (data: ManutencaoFindByCondensadora) => Promise<Object | null>;
     findByEvaporadora: (data: ManutencaoFindByEvaporadora) => Promise<Object | null>;
     delete: (data: ManutencaoDelete) => Promise<void>;
-    update: (data: ManutencaoUpdate) => Promise<void>;
+    update: (data: ManutencaoUpdate) => Promise<Object | null>;
+    start: (data: ManutencaoStart) => Promise<void>;
+    pause: (data: ManutencaoPause) => Promise<void>;
+    finish: (data: ManutencaoFinish) => Promise<void>;
 }

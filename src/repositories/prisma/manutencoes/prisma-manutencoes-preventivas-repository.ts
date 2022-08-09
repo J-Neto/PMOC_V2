@@ -1,5 +1,5 @@
 import { prisma } from "../../../prisma";
-import { ManutencaoPreventivaCreateData, ManutencaoPreventivaDelete, ManutencaoPreventivaFind, ManutencoesPreventivasRepository, ManutencaoPreventivaUpdate} from "../../interfaces/manutencoes/manutencoes-preventivas-repository";
+import { ManutencaoPreventivaCreateData, ManutencaoPreventivaDelete, ManutencaoPreventivaFind, ManutencoesPreventivasRepository, ManutencaoPreventivaUpdate, ManutencaoPreventivaFindByManutencao} from "../../interfaces/manutencoes/manutencoes-preventivas-repository";
 
 export class PrismaManutencoesPreventivasRepository implements ManutencoesPreventivasRepository {
   
@@ -31,6 +31,21 @@ export class PrismaManutencoesPreventivasRepository implements ManutencoesPreven
     );
     return manutencao;
   };
+
+  async findByManutencao({ id_manu }: ManutencaoPreventivaFindByManutencao) {
+    return await prisma.manutencao_Preventiva.findMany({
+      where: {
+        id_manutencao: id_manu
+      },
+      include: {
+        tarefa: {
+          select: {
+            frequencia: true
+          }
+        }
+      }
+    })
+  }
 
   async delete({ id }: ManutencaoPreventivaDelete){
     await prisma.manutencao_Preventiva.delete({

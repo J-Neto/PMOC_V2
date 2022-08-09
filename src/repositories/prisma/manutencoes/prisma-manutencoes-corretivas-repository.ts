@@ -1,5 +1,5 @@
 import { prisma } from "../../../prisma";
-import { ManutencaoCorretivaCreateData, ManutencaoCorretivaDelete, ManutencaoCorretivaFind, ManutencoesCorretivasRepository, ManutencaoCorretivaUpdate} from "../../interfaces/manutencoes/manutencoes-corretivas-repository";
+import { ManutencaoCorretivaCreateData, ManutencaoCorretivaDelete, ManutencaoCorretivaFind, ManutencoesCorretivasRepository, ManutencaoCorretivaUpdate, ManutencaoCorretivaFindByManutencao} from "../../interfaces/manutencoes/manutencoes-corretivas-repository";
 
 export class PrismaManutencoesCorretivasRepository implements ManutencoesCorretivasRepository {
   
@@ -30,6 +30,14 @@ export class PrismaManutencoesCorretivasRepository implements ManutencoesCorreti
     );
     return manutencao;
   };
+
+  async findByManutencao({ id_manu }: ManutencaoCorretivaFindByManutencao) {
+    return await prisma.manutencao_Corretiva.findMany({
+      where: {
+        id_manutencao: id_manu
+      }
+    })
+  }
 
   async delete({ id }: ManutencaoCorretivaDelete){
     await prisma.manutencao_Corretiva.delete({

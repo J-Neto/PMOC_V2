@@ -5,6 +5,7 @@ import { PrismaManutencoesPreventivasRepository } from "../../repositories/prism
 import { PrismaCondensadorasRepository } from "../../repositories/prisma/condensadoras/prisma-condensadoras-repository";
 import { PrismaEvaporadorasRepository } from "../../repositories/prisma/evaporadoras/prisma-evaporadoras-repository";
 import { CreateManutencaoService } from "../../services/manutencoes/CreateManutencaoService";
+import { PrismaRelatoriosRepository } from "../../repositories/prisma/relatorios/prisma-relatorios-repository";
 
 class CreateManutencaoController {
   async handle(req:Request, res:Response) {
@@ -18,9 +19,10 @@ class CreateManutencaoController {
     const prismaManutencoesPreventivasRepository = new PrismaManutencoesPreventivasRepository();
     const prismaCondensadorasRepository = new PrismaCondensadorasRepository();
     const prismaEvaporadorasRepository = new PrismaEvaporadorasRepository();
+    const prismaRelatoriosRepository = new PrismaRelatoriosRepository();
 
     // Service 
-    const createManutencaoService = new CreateManutencaoService(prismaManutencoesRepository, prismaManutencoesCorretivasRepository, prismaManutencoesPreventivasRepository, prismaCondensadorasRepository, prismaEvaporadorasRepository);
+    const createManutencaoService = new CreateManutencaoService(prismaManutencoesRepository, prismaManutencoesCorretivasRepository, prismaManutencoesPreventivasRepository, prismaCondensadorasRepository, prismaEvaporadorasRepository, prismaRelatoriosRepository);
 
     // Executando o service
     const manutencao = await createManutencaoService.execute({

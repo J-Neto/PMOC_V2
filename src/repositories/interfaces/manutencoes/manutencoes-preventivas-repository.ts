@@ -11,6 +11,10 @@ export interface ManutencaoPreventivaFind {
     id: string;
 }
 
+export interface ManutencaoPreventivaFindByManutencao {
+    id_manu: string;
+}
+
 export interface ManutencaoPreventivaDelete {
     id: string;
 }
@@ -29,6 +33,7 @@ export interface ManutencoesPreventivasRepository {
     create: (data: ManutencaoPreventivaCreateData) => Promise<Object | null>;
     get: () => Promise<Object>;
     find: (data: ManutencaoPreventivaFind) => Promise<Object | null>;
+    findByManutencao: (data: ManutencaoPreventivaFindByManutencao) => Promise<Object | null>;
     delete: (data: ManutencaoPreventivaDelete) => Promise<void>;
     update: (data: ManutencaoPreventivaUpdate) => Promise<void>;
 }
