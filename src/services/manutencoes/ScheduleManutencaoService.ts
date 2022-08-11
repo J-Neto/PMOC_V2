@@ -29,10 +29,27 @@ export class ScheduleManutencaoService {
 
         // Percorrendo todas as manutenções criadas
           for (let manutencao of Object(manutencoes)) {
-          
+
           // Verificando se a manutenção está ATRASADA ----------------------------------------------------------------------------------
           // Se a manutenção tiver prazo estipulado
             if (Object(manutencao).previsao_termino) {
+
+              // Como eu não consigo comparar se a data x é depois da data y,
+              // Então eu vou pegar a data de hoje e tirar um dia,
+              // Assim tenho a data de ontem
+
+              // Pego a data do termino e comparo com a data de ontem
+              // Se for igual, então eu sei q a data de término era pra ontem e se a manutenção ainda está em execução, 
+              // Então está atrasada
+
+              // Ex.: 
+              // Término: 25/06/2022
+              // Hoje: 26/06/2022
+              // Eu sei que o término é no dia anterior
+              // Se eu tirar um dia da data de hoje ... (26/06/2022 -1 dia = 25/06/2022)
+              // data_dia_anterior = (26/06/2022 -1 dia = 25/06/2022)
+              // Então se termino == data_dia_anterior é pq já passou da data?
+              // Entendeste??
 
               // Data do dia anterior
               const data_dia_anterior = new Date(Date.now() - 1 * 24 * 60 * 60 * 1000)
@@ -41,11 +58,13 @@ export class ScheduleManutencaoService {
 
               // Data do prazo
               const data_termino = Object(manutencao).previsao_termino;
+              const data_termino_ontem = new Date(data_termino - 1 * 24 * 60 * 60 * 1000);
+
               // Desconsiderando as horas
               data_termino.setHours(0, 0, 0);
 
               // Se a manutenção ainda está em EXECUÇÃO e a data de termino for igual ao dia anterior (data que já passou), é porque está atrasado;
-              if((data_dia_anterior.toString() == data_termino.toString()) && (manutencao.status == "em execução")) {
+              if((data_dia_anterior.toString() == data_termino.toString()) && (manutencao.status == "execucao")) {
 
                 // Atualizando o status
                 Object(manutencao).status = "atrasado";
@@ -83,7 +102,8 @@ export class ScheduleManutencaoService {
               data_atual.setHours(0, 0, 0);
 
               // Pegando a data agendada e colocando a hora como 0
-              const data_agendado = Object(manutencao).data_agendado
+              const data_agendado = data_atual
+              // const data_agendado = Object(manutencao).data_agendado
               data_agendado.setHours(0, 0, 0)
 
               // Se o dia atual for o mesmo do agendado, cria a nova manutenção PREVENTIVA

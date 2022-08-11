@@ -12,19 +12,15 @@ class GetRelatoriosController {
     const getRelatoriosService = new GetRelatoriosService(prismaRelatoriosRepository);
 
     // Executando o service
-    const relatorio = await getRelatoriosService.execute()
+    const relatorios = await getRelatoriosService.execute()
 
     // Caso aconteça algum erro, interrompe o processo retorna a mensagem de erro
-    if(relatorio instanceof Error) {
-      return res.status(400).send(relatorio.message);
+    if(relatorios instanceof Error) {
+      return res.status(400).send(relatorios.message);
     }
 
     // Retornando mensagem de sucesso para o usuário
-    return res.status(201).send(
-      {
-        message:"Relatorio criado com sucesso!",
-      }
-    );
+    return res.status(200).send(relatorios);
   }
 }
 

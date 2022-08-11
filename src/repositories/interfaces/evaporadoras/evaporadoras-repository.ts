@@ -41,5 +41,5 @@ export interface EvaporadorasRepository {
     find: (data: EvaporadoraFind) => Promise<Object | null>;
     findByCodigo: (data: EvaporadoraFindByCodigo) => Promise<Object | null>;
     delete: (data: EvaporadoraDelete) => Promise<void>;
-    update: (data: EvaporadoraUpdate) => Promise<void>;
+    update: (data: EvaporadoraUpdate) => Promise<Object | null>;
 }

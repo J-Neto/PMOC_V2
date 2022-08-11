@@ -58,7 +58,7 @@ export class PrismaCondensadorasRepository implements CondensadorasRepository {
   async update({ id, codigo, modelo, status, status_anterior, modulo, quadro, local_instalacao }: CondensadoraUpdate){
     
     // Atualizando a condensadora
-    await prisma.condensadora.update({
+    const condensadora = await prisma.condensadora.update({
       where: {
         id,
       },
@@ -133,6 +133,8 @@ export class PrismaCondensadorasRepository implements CondensadorasRepository {
         }
       })
     }
+
+    return condensadora;
   };
 
 }

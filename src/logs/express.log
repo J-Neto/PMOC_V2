@@ -1,0 +1,14 @@
+
+Request: POST /login at Wed Aug 10 2022 16:33:29 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Request Body:
+{
+	"email": "admin@mirante.com.br",
+	"senha": "@Mirante22"
+}
+Response Body:
+{
+	"name": "administrador",
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQG1pcmFudGUuY29tLmJyIiwiaWF0IjoxNjYwMTYwMDA5LCJleHAiOjE2NjAyNDY0MDksInN1YiI6IjQwMWEwMTNmLWE3ZjEtNDkyNi1iNzUwLTNjZTNjY2MxODg4OSJ9.3q8VV9s7e5p3wQzX4ah8LLCRQNnXu7mFyoCKY-rXDIQ",
+	"nivel": 1
+}
+Response: 200 146.196 ms 

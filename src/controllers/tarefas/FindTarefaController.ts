@@ -25,11 +25,7 @@ class FindTarefaController {
     }
 
     // Retornando mensagem de sucesso para o usuário
-    return res.status(201).send(
-      {
-        tarefa,
-      }
-    );
+    return res.status(200).send(tarefa);
   }
 }
 

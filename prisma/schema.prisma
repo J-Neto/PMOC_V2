@@ -102,16 +102,17 @@ model Condensadora {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  codigo           String             @unique
+  codigo           String              @unique
   modelo           String?
   status           CondensadoraStatus
-  status_anterior CondensadoraStatus?
+  status_anterior  CondensadoraStatus?
   modulo           String?
   quadro           String?
   local_instalacao String?
 
-  Equipamento Equipamento[]
-  Manutencao  Manutencao[]
+  Equipamento            Equipamento[]
+  Manutencao             Manutencao[]
+  Documento_Condensadora Documento_Condensadora[]
 
   @@map("condensadoras")
 }
@@ -128,21 +129,20 @@ model Evaporadora {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  codigo   String            @unique
-  modelo   String?
-  marca    String?
-  potencia Float             @default(0)
-  status   EvaporadoraStatus
+  codigo          String             @unique
+  modelo          String?
+  marca           String?
+  potencia        Float              @default(0)
+  status          EvaporadoraStatus
   status_anterior EvaporadoraStatus?
-  quadro   String?
+  quadro          String?
 
   id_sala String?
   sala    Sala?   @relation(fields: [id_sala], references: [id], onDelete: SetNull, onUpdate: Cascade)
 
-  Equipamento            Equipamento[]
-  Manutencao             Manutencao[]
-  Documento_Evaporadora  Documento_Evaporadora[]
-  Documento_Condensadora Documento_Condensadora[]
+  Equipamento           Equipamento[]
+  Manutencao            Manutencao[]
+  Documento_Evaporadora Documento_Evaporadora[]
 
   @@map("evaporadoras")
 }
@@ -255,7 +255,7 @@ model Manutencao_Corretiva {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  descricao String
+  descricao        String
   previsao_termino DateTime? @default(now())
   data_termino     DateTime?
 
@@ -311,7 +311,7 @@ model Documento_Condensadora {
   documento Documento @relation(fields: [id_doc], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
   id_condensadora String
-  condensadora    Evaporadora @relation(fields: [id_condensadora], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  condensadora    Condensadora @relation(fields: [id_condensadora], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
   @@map("documentos_condensadoras")
 }
@@ -337,7 +337,7 @@ model Usuario {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  nome String
+  nome  String
   email String
   senha String
   nivel Int

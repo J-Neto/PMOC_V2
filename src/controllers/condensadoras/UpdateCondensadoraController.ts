@@ -53,8 +53,8 @@ class UpdateCondensadoraController {
           
           const indice = Object.keys(req.files).indexOf("foto")
 
-          const path = "localhost:3001/files" + Object.values(req.files)[indice][0].filename;
-          const filename = "localhost:3001/files" + Object.values(req.files)[indice][0].filename;
+          const path = "http://192.168.6.20:3020/files/" + Object.values(req.files)[indice][0].filename;
+          const filename = "http://192.168.6.20:3020/files/" + Object.values(req.files)[indice][0].filename;
           const originalName = Object.values(req.files)[indice][0].originalname;
           const fileFormat = Object.values(req.files)[indice][0].mimetype;
   
@@ -74,11 +74,10 @@ class UpdateCondensadoraController {
 
         // Verificando se o documento inserido foi PDF
         if (Object.keys(req.files).includes("file")) {
-  
           const indice = Object.keys(req.files).indexOf("file")
 
-          const path = "localhost:3001/files" + Object.values(req.files)[indice][0].filename;
-          const filename = "localhost:3001/files" + Object.values(req.files)[indice][0].filename;
+          const path = "http://192.168.6.20:3020/files/" + Object.values(req.files)[indice][0].filename;
+          const filename = "http://192.168.6.20:3020/files/" + Object.values(req.files)[indice][0].filename;
           const originalName = Object.values(req.files)[indice][0].originalname;
           const fileFormat = Object.values(req.files)[indice][0].mimetype;
   
@@ -91,6 +90,10 @@ class UpdateCondensadoraController {
 
           const id_doc = Object(docCriado).id;
           const id_condensadora = Object(condensadora).id;
+
+          console.log(Object(req.files))
+          console.log(id_doc)
+          console.log(id_condensadora)
 
           // Criando o documento da condensadora
           const doc_condensadoraCriado = await createDocumentoCondensadoraService.execute({ id_doc, id_condensadora })
@@ -105,7 +108,7 @@ class UpdateCondensadoraController {
     
 
     // Retornando mensagem de sucesso para o usuário
-    return res.status(201).send(
+    return res.status(200).send(
       {
         message:"Condensadora atualizada com sucesso!",
       }

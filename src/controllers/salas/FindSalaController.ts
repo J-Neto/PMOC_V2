@@ -25,11 +25,7 @@ class FindSalaController {
     } 
 
     // Retornando mensagem de sucesso para o usuário
-    return res.status(201).send(
-      {
-        sala,
-      }
-    );
+    return res.status(200).send(sala);
   }
 }
 

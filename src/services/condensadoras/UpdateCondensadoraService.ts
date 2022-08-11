@@ -43,8 +43,8 @@ export class UpdateCondensadoraService {
     const status_anterior = Object(condensadora).status;
 
     try {
-      // Criando ...
-      await this.condensadorasRepository.update({
+      // Atualizando ...
+      return await this.condensadorasRepository.update({
         id,
         codigo, 
         modelo, 

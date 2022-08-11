@@ -49,6 +49,11 @@ import { FindManutencaoController } from "../controllers/manutencoes/FindManuten
 import { PauseManutencaoController } from "../controllers/manutencoes/PauseManutencaoController";
 import { FinishManutencaoController } from "../controllers/manutencoes/FinishManutencaoController";
 import { ScheduleManutencaoController } from "../controllers/manutencoes/ScheduleManutencaoController";
+import { CreateUsuarioController } from "../controllers/usuarios/CreateUsuarioController";
+import { GetUsuariosController } from "../controllers/usuarios/GetUsuariosController";
+import { DeleteUsuarioController } from "../controllers/usuarios/DeleteUsuarioController";
+import { UpdateUsuarioController } from "../controllers/usuarios/UpdateUsuarioController";
+import { AuthenticateUsuarioController } from "../controllers/usuarios/AuthenticateUsuarioController";
 
 const router = Router();
 
@@ -180,4 +185,20 @@ router
 router
   .route("/manutencoes_agendamentos")
   .get(new ScheduleManutencaoController().handle)
+
+// Usuários
+router
+  .route("/usuarios")
+  .post(new CreateUsuarioController().handle)
+  .get(new GetUsuariosController().handle)
+
+router
+  .route("/usuarios/:id")
+  .delete(new DeleteUsuarioController().handle)
+  .put(new UpdateUsuarioController().handle)
+
+router
+  .route("/login")
+  .post(new AuthenticateUsuarioController().handle);
+  
 export { router };

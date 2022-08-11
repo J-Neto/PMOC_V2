@@ -230,4 +230,5 @@ export class PrismaManutencoesRepository implements ManutencoesRepository {
       }
     });
   }
+
 }

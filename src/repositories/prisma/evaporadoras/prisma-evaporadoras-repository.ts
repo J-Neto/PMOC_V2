@@ -22,6 +22,9 @@ export class PrismaEvaporadorasRepository implements EvaporadorasRepository {
     const itens = await prisma.evaporadora.findMany({
       orderBy: {
         codigo: "asc"
+      },
+      include: {
+        sala: true
       }
     });
     return itens;
@@ -32,6 +35,9 @@ export class PrismaEvaporadorasRepository implements EvaporadorasRepository {
       {
         where: {
           id,
+        },
+        include: {
+          sala: true
         }
       }
     );
@@ -59,7 +65,7 @@ export class PrismaEvaporadorasRepository implements EvaporadorasRepository {
   async update({ id, codigo, modelo, marca, potencia, status, status_anterior, quadro, id_sala }: EvaporadoraUpdate){
     
     // Atualizando a evaporadora
-    await prisma.evaporadora.update({
+    const evaporadora = await prisma.evaporadora.update({
       where: {
         id,
       },
@@ -135,6 +141,7 @@ export class PrismaEvaporadorasRepository implements EvaporadorasRepository {
         }
       })
     }
+    return evaporadora;
   };
 
 }

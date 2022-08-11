@@ -32,7 +32,104 @@ export class PrismaEquipamentosRepository implements EquipamentosRepository {
       {
         where: {
           id,
+        },
+        include: {
+          condensadora: {
+            include: {
+              Documento_Condensadora: {
+                select: {
+                  documento: {
+                    select: {
+                      originalName: true,
+                      path: true
+                    }
+                  }
+                }
+              },
+              Manutencao: {
+                select: {
+                  Manutencao_Corretiva: {
+                    select: {
+                      item: {
+                        select: {
+                          nome: true,
+                        }
+                      },
+                      descricao: true
+                    }
+                  },
+                  Manutencao_Preventiva: {
+                    orderBy: {
+                      tarefa: {
+                        descricao: "asc"
+                      }
+                    },
+                    select: {
+                      item: {
+                        select: {
+                          nome: true,
+                        }
+                      },
+                      tarefa: {
+                        select: {
+                          descricao: true,
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          evaporadora: {
+            include: {
+              Documento_Evaporadora: {
+                select: {
+                  documento: {
+                    select: {
+                      originalName: true,
+                      path: true
+                    }
+                  }
+                }
+              },
+              Manutencao: {
+                select: {
+                  Manutencao_Corretiva: {
+                    select: {
+                      item: {
+                        select: {
+                          nome: true,
+                        }
+                      },
+                      descricao: true
+                    }
+                  },
+                  Manutencao_Preventiva: {
+                    orderBy: {
+                      tarefa: {
+                        descricao: "asc"
+                      }
+                    },
+                    select: {
+                      item: {
+                        select: {
+                          nome: true,
+                        }
+                      },
+                      tarefa: {
+                        select: {
+                          descricao: true,
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
+        
       }
     );
     return equipamento;

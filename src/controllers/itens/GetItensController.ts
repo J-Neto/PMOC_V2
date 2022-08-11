@@ -20,11 +20,7 @@ class GetItensController {
     }
 
     // Retornando mensagem de sucesso para o usuário
-    return res.status(201).send(
-      {
-        itens,
-      }
-    );
+    return res.status(200).send(itens);
   }
 }
 

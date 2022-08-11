@@ -20,11 +20,7 @@ class GetSetoresController {
     }
 
     // Retornando mensagem de sucesso para o usuário
-    return res.status(201).send(
-      {
-        setores,
-      }
-    );
+    return res.status(200).send(setores);
   }
 }
 

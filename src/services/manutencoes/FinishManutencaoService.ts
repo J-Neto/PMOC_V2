@@ -157,7 +157,9 @@ export class FinishManutencaoService {
 
             // Criando a data do agendamento para o próximo mês
             const agendado = new Date();
-            agendado.setMonth(Object(preventiva).data_termino.getMonth() + 1);
+            if (agendado) {
+              agendado.setMonth(Object(preventiva).data_termino.getMonth() + 1);
+            }
 
             await this.manutencoesPreventivasRepository.update({
               id: Object(preventiva).id,
@@ -186,7 +188,9 @@ export class FinishManutencaoService {
 
             // Com base no prazo da manutenção atual, estabelecendo o prazo para a NOVA manutenção que será agendada
             const previsao_termino = Object(preventiva).data_agendado;
-            previsao_termino.setDate(previsao_termino.getDate() + prazo);
+            if (previsao_termino) {
+              previsao_termino.setDate(previsao_termino.getDate() + prazo);
+            }
 
             // Data do agendamento
             const data_agendado = new Date();
@@ -222,7 +226,9 @@ export class FinishManutencaoService {
 
             // Criando a data do agendamento para o próximo mês
             const agendado = new Date();
-            agendado.setMonth(Object(preventiva).data_termino.getMonth() + 3);
+            if (agendado) {
+              agendado.setMonth(Object(preventiva).data_termino.getMonth() + 3);
+            }
 
             await this.manutencoesPreventivasRepository.update({
               id: Object(preventiva).id,
@@ -287,7 +293,9 @@ export class FinishManutencaoService {
 
             // Criando a data do agendamento para o próximo mês
             const agendado = new Date();
-            agendado.setMonth(Object(preventiva).data_termino.getMonth() + 6);
+            if (agendado) {
+              agendado.setMonth(Object(preventiva).data_termino.getMonth() + 6);
+            }
 
             await this.manutencoesPreventivasRepository.update({
               id: Object(preventiva).id,
@@ -316,7 +324,9 @@ export class FinishManutencaoService {
 
             // Com base no prazo da manutenção atual, estabelecendo o prazo para a NOVA manutenção que será agendada
             const previsao_termino = Object(preventiva).data_agendado;
-            previsao_termino.setDate(previsao_termino.getDate() + prazo);
+            if (agendado) {
+              previsao_termino.setDate(previsao_termino.getDate() + prazo);
+            }
 
             // Data do agendamento
             const data_agendado = new Date();
@@ -352,7 +362,9 @@ export class FinishManutencaoService {
 
             // Criando a data do agendamento para o próximo mês
             const agendado = new Date();
-            agendado.setMonth(Object(preventiva).data_termino.getMonth() + 12);
+            if (agendado) {
+              agendado.setMonth(Object(preventiva).data_termino.getMonth() + 12);
+            }
 
             await this.manutencoesPreventivasRepository.update({
               id: Object(preventiva).id,
@@ -381,7 +393,9 @@ export class FinishManutencaoService {
 
             // Com base no prazo da manutenção atual, estabelecendo o prazo para a NOVA manutenção que será agendada
             const previsao_termino = Object(preventiva).data_agendado;
-            previsao_termino.setDate(previsao_termino.getDate() + prazo);
+            if(previsao_termino) {
+              previsao_termino.setDate(previsao_termino.getDate() + prazo);
+            }
 
             // Data do agendamento
             const data_agendado = new Date();

@@ -39,5 +39,5 @@ export interface CondensadorasRepository {
     find: (data: CondensadoraFind) => Promise<Object | null>;
     findByCodigo: (data: CondensadoraFindByCodigo) => Promise<Object | null>;
     delete: (data: CondensadoraDelete) => Promise<void>;
-    update: (data: CondensadoraUpdate) => Promise<void>;
+    update: (data: CondensadoraUpdate) => Promise<Object | null>;
 }

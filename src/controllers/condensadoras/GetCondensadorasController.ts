@@ -19,11 +19,7 @@ class GetCondensadorasController {
     }
 
     // Retornando mensagem de sucesso para o usuário
-    return res.status(201).send(
-      {
-        condensadoras,
-      }
-    );
+    return res.status(200).send(condensadoras);
   }
 }
 
