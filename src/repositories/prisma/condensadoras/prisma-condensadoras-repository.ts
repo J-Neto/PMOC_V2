@@ -31,10 +31,38 @@ export class PrismaCondensadorasRepository implements CondensadorasRepository {
       {
         where: {
           id,
+        },
+        include: {
+          Documento_Condensadora: {
+            select: {
+              documento: true
+            }
+          }
         }
       }
     );
-    return condensadora;
+
+    let docs = [];
+    
+    for (let doc of Object(condensadora)?.Documento_Condensadora) {
+      docs.push(Object.values(doc)[0])
+    }
+
+    const condensadora_final = {
+      id: condensadora?.id,
+      created_at: condensadora?.created_at,
+      updated_at: condensadora?.updated_at,
+      codigo: condensadora?.codigo,
+      modelo: condensadora?.modelo,
+      status: condensadora?.status,
+      status_anterior: condensadora?.status_anterior,
+      modulo: condensadora?.modulo,
+      quadro: condensadora?.quadro,
+      local_instalacao: condensadora?.local_instalacao,
+      documentos: docs
+    }
+
+    return condensadora_final;
   };
 
   async findByCodigo({ codigo }: CondensadoraFindByCodigo) {

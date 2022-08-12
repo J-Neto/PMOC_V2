@@ -64,6 +64,7 @@ CREATE TABLE `condensadoras` (
     `codigo` VARCHAR(191) NOT NULL,
     `modelo` VARCHAR(191) NULL,
     `status` ENUM('normal', 'defeito', 'parado') NOT NULL,
+    `status_anterior` ENUM('normal', 'defeito', 'parado') NULL,
     `modulo` VARCHAR(191) NULL,
     `quadro` VARCHAR(191) NULL,
     `local_instalacao` VARCHAR(191) NULL,
@@ -82,6 +83,7 @@ CREATE TABLE `evaporadoras` (
     `marca` VARCHAR(191) NULL,
     `potencia` DOUBLE NOT NULL DEFAULT 0,
     `status` ENUM('normal', 'defeito', 'parado') NOT NULL,
+    `status_anterior` ENUM('normal', 'defeito', 'parado') NULL,
     `quadro` VARCHAR(191) NULL,
     `id_sala` VARCHAR(191) NULL,
 
@@ -97,7 +99,7 @@ CREATE TABLE `equipamentos` (
     `tipo` ENUM('SPLIT', 'VRF') NOT NULL,
     `linha` VARCHAR(191) NULL,
     `codigo` VARCHAR(191) NOT NULL,
-    `status` ENUM('normal', 'defeito') NOT NULL,
+    `status` ENUM('normal', 'defeito', 'parado') NOT NULL DEFAULT 'normal',
     `id_condensadora` VARCHAR(191) NOT NULL,
     `id_evaporadora` VARCHAR(191) NOT NULL,
 
@@ -146,6 +148,7 @@ CREATE TABLE `manutencoes_corretivas` (
     `id` VARCHAR(191) NOT NULL,
     `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updated_at` DATETIME(3) NOT NULL,
+    `descricao` VARCHAR(191) NOT NULL,
     `previsao_termino` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
     `data_termino` DATETIME(3) NULL,
     `id_manutencao` VARCHAR(191) NOT NULL,
@@ -163,8 +166,6 @@ CREATE TABLE `documentos` (
     `filename` VARCHAR(191) NOT NULL,
     `originalName` VARCHAR(191) NOT NULL,
     `fileFormat` VARCHAR(191) NOT NULL,
-    `previsao_termino` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `data_termino` DATETIME(3) NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -261,7 +262,7 @@ ALTER TABLE `documentos_evaporadoras` ADD CONSTRAINT `documentos_evaporadoras_id
 ALTER TABLE `documentos_condensadoras` ADD CONSTRAINT `documentos_condensadoras_id_doc_fkey` FOREIGN KEY (`id_doc`) REFERENCES `documentos`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `documentos_condensadoras` ADD CONSTRAINT `documentos_condensadoras_id_condensadora_fkey` FOREIGN KEY (`id_condensadora`) REFERENCES `evaporadoras`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `documentos_condensadoras` ADD CONSTRAINT `documentos_condensadoras_id_condensadora_fkey` FOREIGN KEY (`id_condensadora`) REFERENCES `condensadoras`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `documentos_manutencoes` ADD CONSTRAINT `documentos_manutencoes_id_doc_fkey` FOREIGN KEY (`id_doc`) REFERENCES `documentos`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

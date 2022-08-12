@@ -12,3 +12,2771 @@ Response Body:
 	"nivel": 1
 }
 Response: 200 146.196 ms 
+
+Request: GET /equipamentos at Fri Aug 12 2022 11:43:34 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+Equipamentos inexistentes!
+Response: 400 221.171 ms 
+
+Request: GET /salas/ at Fri Aug 12 2022 11:49:37 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+Nenhuma sala no sistema!
+Response: 400 33.188 ms 
+
+Request: GET /itens at Fri Aug 12 2022 11:51:53 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+[
+	{
+		"id": "db489980-3fe0-414f-af87-04a81303a633",
+		"created_at": "2022-05-30T16:48:39.000Z",
+		"updated_at": "2022-05-30T16:48:39.000Z",
+		"nome": "BANDEJAS - SPLIT"
+	},
+	{
+		"id": "1e4e78e1-2366-4af0-9bc8-9bd50bfa81bd",
+		"created_at": "2022-05-30T16:55:48.000Z",
+		"updated_at": "2022-05-30T16:55:48.000Z",
+		"nome": "CIRCUITO ELÉTRICO - SPLIT"
+	},
+	{
+		"id": "d668aa7a-e398-450d-a089-c3ad2aed1ece",
+		"created_at": "2022-05-30T16:32:37.000Z",
+		"updated_at": "2022-05-30T16:32:37.000Z",
+		"nome": "CIRCUITO FRIGORÍGENO - VRF"
+	},
+	{
+		"id": "e8eb40db-faf9-4fc0-8f64-1df852e57e8c",
+		"created_at": "2022-05-30T16:54:40.000Z",
+		"updated_at": "2022-05-30T16:54:40.000Z",
+		"nome": "CIRCUITO REFRIGERANTE - SPLIT"
+	},
+	{
+		"id": "81413a2c-59e6-4ef7-a221-d07a553c7444",
+		"created_at": "2022-05-30T16:31:11.000Z",
+		"updated_at": "2022-05-30T16:31:11.000Z",
+		"nome": "COMPRESSOR - VRF"
+	},
+	{
+		"id": "fbbb9b4a-5fa8-4e61-af60-5e2fe2720e92",
+		"created_at": "2022-05-30T16:53:57.000Z",
+		"updated_
+...
+Response: 200 23.057 ms 
+
+Request: GET /tarefas at Fri Aug 12 2022 11:52:08 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+[
+	{
+		"id": "082e8b93-4e0b-4dcf-b7f8-61342b7757ff",
+		"created_at": "2022-06-01T09:10:30.000Z",
+		"updated_at": "2022-06-01T09:10:30.000Z",
+		"tipo": "VRF",
+		"descricao": "Acoplamento do eixo",
+		"frequencia": "trimestral",
+		"id_item": "746d8e2c-32d2-4c5c-9775-3a10c048f021"
+	},
+	{
+		"id": "c256d6ea-6913-472e-895e-e460427e7d8c",
+		"created_at": "2022-06-01T09:04:48.000Z",
+		"updated_at": "2022-06-01T09:04:48.000Z",
+		"tipo": "VRF",
+		"descricao": "Acumulador de sucção, se houver",
+		"frequencia": "trimestral",
+		"id_item": "d668aa7a-e398-450d-a089-c3ad2aed1ece"
+	},
+	{
+		"id": "8ea4bfb0-395b-40d2-90d0-c596b2149579",
+		"created_at": "2022-06-01T09:10:13.000Z",
+		"updated_at": "2022-06-01T09:10:13.000Z",
+		"tipo": "VRF",
+		"descricao": "Alinhamento, fixação e desgaste das polias",
+		"frequencia": "trimestral",
+		"id_item": "746d8e2c-32d2-4c5c-9775-3a10c048f021"
+	},
+	{
+		"id": "fe03a0c9-935e-43ef-a80f-d95b8b1cc228",
+		"created_at": "2022-06-01T09:01:19.000Z",
+		"updated_at": "2022-06-01T
+...
+Response: 200 13.492 ms 
+
+Request: GET /setores at Fri Aug 12 2022 11:52:43 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+[
+	{
+		"id": "4f095fb8-b75a-4fd7-90a8-bd882b569bae",
+		"created_at": "2022-06-20T14:21:28.000Z",
+		"updated_at": "2022-06-20T14:21:28.000Z",
+		"nome": "Administrativo-Financeiro"
+	},
+	{
+		"id": "9e77892d-998e-4c3a-a1be-a90b1a167b6a",
+		"created_at": "2022-06-20T14:21:42.000Z",
+		"updated_at": "2022-06-20T14:21:42.000Z",
+		"nome": "AM"
+	},
+	{
+		"id": "619855ec-8253-4b4f-8c69-2ea7f2040701",
+		"created_at": "2022-06-20T14:21:50.000Z",
+		"updated_at": "2022-06-20T14:21:50.000Z",
+		"nome": "Área Comum"
+	},
+	{
+		"id": "d2b8c10f-d2ba-4b9d-a968-4f0b25124dca",
+		"created_at": "2022-06-20T14:22:03.000Z",
+		"updated_at": "2022-06-20T14:22:03.000Z",
+		"nome": "Comercial"
+	},
+	{
+		"id": "78ec7dab-b0b8-4be9-9538-9a930dcc2771",
+		"created_at": "2022-06-20T14:22:13.000Z",
+		"updated_at": "2022-06-20T14:22:13.000Z",
+		"nome": "Exibição"
+	},
+	{
+		"id": "702465dd-e8a5-4e51-a36d-f35626b39bd5",
+		"created_at": "2022-06-21T13:15:39.000Z",
+		"updated_at": "2022-06-21T13:15:39.000Z",
+		"nome": "FM"
+	},
+	{
+		"
+...
+Response: 200 21.374 ms 
+
+Request: GET /salas at Fri Aug 12 2022 11:52:49 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+Nenhuma sala no sistema!
+Response: 400 3.393 ms 
+
+Request: GET /salas at Fri Aug 12 2022 11:53:27 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+[
+	{
+		"id": "806ce569-88b7-4d14-a66f-7dd850688b30",
+		"created_at": "2022-06-21T14:47:05.000Z",
+		"updated_at": "2022-06-21T14:47:05.000Z",
+		"nome": "Almoxarifado",
+		"andar": "1",
+		"dimensao": "",
+		"id_setor": "4f095fb8-b75a-4fd7-90a8-bd882b569bae"
+	},
+	{
+		"id": "a63f17e1-e0e9-4c4c-9ace-46af7811f65c",
+		"created_at": "2022-06-21T14:35:57.000Z",
+		"updated_at": "2022-06-21T14:35:57.000Z",
+		"nome": "Arquivo RH",
+		"andar": "1",
+		"dimensao": "",
+		"id_setor": "4f095fb8-b75a-4fd7-90a8-bd882b569bae"
+	},
+	{
+		"id": "8c0f78eb-7798-4584-9829-9c3472aa7057",
+		"created_at": "2022-06-21T14:47:56.000Z",
+		"updated_at": "2022-06-21T14:47:56.000Z",
+		"nome": "Auditório",
+		"andar": "2",
+		"dimensao": "",
+		"id_setor": "619855ec-8253-4b4f-8c69-2ea7f2040701"
+	},
+	{
+		"id": "d2a31493-ca92-4b2b-a856-1d22e543986d",
+		"created_at": "2022-06-21T13:17:23.000Z",
+		"updated_at": "2022-06-21T13:17:23.000Z",
+		"nome": "Camarim Estúdio 1",
+		"andar": "2",
+		"dimensao": "",
+		"id_setor": "619855ec-8253-4b
+...
+Response: 200 5.254 ms 
+
+Request: GET /condensadoras at Fri Aug 12 2022 11:53:50 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+Nenhuma condensadora cadastrada!
+Response: 400 8.197 ms 
+
+Request: GET /condensadoras at Fri Aug 12 2022 11:54:15 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+Nenhuma condensadora cadastrada!
+Response: 400 6.143 ms 
+
+Request: GET /itens at Fri Aug 12 2022 11:56:58 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+[
+	{
+		"id": "db489980-3fe0-414f-af87-04a81303a633",
+		"created_at": "2022-05-30T16:48:39.000Z",
+		"updated_at": "2022-05-30T16:48:39.000Z",
+		"nome": "BANDEJAS - SPLIT"
+	},
+	{
+		"id": "1e4e78e1-2366-4af0-9bc8-9bd50bfa81bd",
+		"created_at": "2022-05-30T16:55:48.000Z",
+		"updated_at": "2022-05-30T16:55:48.000Z",
+		"nome": "CIRCUITO ELÉTRICO - SPLIT"
+	},
+	{
+		"id": "d668aa7a-e398-450d-a089-c3ad2aed1ece",
+		"created_at": "2022-05-30T16:32:37.000Z",
+		"updated_at": "2022-05-30T16:32:37.000Z",
+		"nome": "CIRCUITO FRIGORÍGENO - VRF"
+	},
+	{
+		"id": "e8eb40db-faf9-4fc0-8f64-1df852e57e8c",
+		"created_at": "2022-05-30T16:54:40.000Z",
+		"updated_at": "2022-05-30T16:54:40.000Z",
+		"nome": "CIRCUITO REFRIGERANTE - SPLIT"
+	},
+	{
+		"id": "81413a2c-59e6-4ef7-a221-d07a553c7444",
+		"created_at": "2022-05-30T16:31:11.000Z",
+		"updated_at": "2022-05-30T16:31:11.000Z",
+		"nome": "COMPRESSOR - VRF"
+	},
+	{
+		"id": "fbbb9b4a-5fa8-4e61-af60-5e2fe2720e92",
+		"created_at": "2022-05-30T16:53:57.000Z",
+		"updated_
+...
+Response: 200 16.496 ms 
+
+Request: GET /tarefas at Fri Aug 12 2022 11:57:02 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+[
+	{
+		"id": "082e8b93-4e0b-4dcf-b7f8-61342b7757ff",
+		"created_at": "2022-06-01T09:10:30.000Z",
+		"updated_at": "2022-06-01T09:10:30.000Z",
+		"tipo": "VRF",
+		"descricao": "Acoplamento do eixo",
+		"frequencia": "trimestral",
+		"id_item": "746d8e2c-32d2-4c5c-9775-3a10c048f021"
+	},
+	{
+		"id": "c256d6ea-6913-472e-895e-e460427e7d8c",
+		"created_at": "2022-06-01T09:04:48.000Z",
+		"updated_at": "2022-06-01T09:04:48.000Z",
+		"tipo": "VRF",
+		"descricao": "Acumulador de sucção, se houver",
+		"frequencia": "trimestral",
+		"id_item": "d668aa7a-e398-450d-a089-c3ad2aed1ece"
+	},
+	{
+		"id": "8ea4bfb0-395b-40d2-90d0-c596b2149579",
+		"created_at": "2022-06-01T09:10:13.000Z",
+		"updated_at": "2022-06-01T09:10:13.000Z",
+		"tipo": "VRF",
+		"descricao": "Alinhamento, fixação e desgaste das polias",
+		"frequencia": "trimestral",
+		"id_item": "746d8e2c-32d2-4c5c-9775-3a10c048f021"
+	},
+	{
+		"id": "fe03a0c9-935e-43ef-a80f-d95b8b1cc228",
+		"created_at": "2022-06-01T09:01:19.000Z",
+		"updated_at": "2022-06-01T
+...
+Response: 200 6.768 ms 
+
+Request: GET /documentos at Fri Aug 12 2022 11:58:42 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 404 3.943 ms 
+
+Request: GET /itens at Fri Aug 12 2022 11:58:54 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+[
+	{
+		"id": "db489980-3fe0-414f-af87-04a81303a633",
+		"created_at": "2022-05-30T16:48:39.000Z",
+		"updated_at": "2022-05-30T16:48:39.000Z",
+		"nome": "BANDEJAS - SPLIT"
+	},
+	{
+		"id": "1e4e78e1-2366-4af0-9bc8-9bd50bfa81bd",
+		"created_at": "2022-05-30T16:55:48.000Z",
+		"updated_at": "2022-05-30T16:55:48.000Z",
+		"nome": "CIRCUITO ELÉTRICO - SPLIT"
+	},
+	{
+		"id": "d668aa7a-e398-450d-a089-c3ad2aed1ece",
+		"created_at": "2022-05-30T16:32:37.000Z",
+		"updated_at": "2022-05-30T16:32:37.000Z",
+		"nome": "CIRCUITO FRIGORÍGENO - VRF"
+	},
+	{
+		"id": "e8eb40db-faf9-4fc0-8f64-1df852e57e8c",
+		"created_at": "2022-05-30T16:54:40.000Z",
+		"updated_at": "2022-05-30T16:54:40.000Z",
+		"nome": "CIRCUITO REFRIGERANTE - SPLIT"
+	},
+	{
+		"id": "81413a2c-59e6-4ef7-a221-d07a553c7444",
+		"created_at": "2022-05-30T16:31:11.000Z",
+		"updated_at": "2022-05-30T16:31:11.000Z",
+		"nome": "COMPRESSOR - VRF"
+	},
+	{
+		"id": "fbbb9b4a-5fa8-4e61-af60-5e2fe2720e92",
+		"created_at": "2022-05-30T16:53:57.000Z",
+		"updated_
+...
+Response: 200 5.296 ms 
+
+Request: GET /documentos at Fri Aug 12 2022 12:00:36 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 404 1.251 ms 
+
+Request: GET /condensadoras at Fri Aug 12 2022 12:00:52 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+Nenhuma condensadora cadastrada!
+Response: 400 5.065 ms 
+
+Request: GET /condensadoras at Fri Aug 12 2022 12:05:53 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+Nenhuma condensadora cadastrada!
+Response: 400 8.976 ms 
+
+Request: GET /documentos at Fri Aug 12 2022 12:06:24 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 404 0.434 ms 
+
+Request: GET /condensadoras at Fri Aug 12 2022 14:01:44 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+[
+	{
+		"id": "66d8184b-0e7b-4176-9d07-ec8580f218fd",
+		"created_at": "2022-07-27T09:22:40.000Z",
+		"updated_at": "2022-07-27T09:22:40.000Z",
+		"codigo": "CON002",
+		"modelo": "undefined",
+		"status": "normal",
+		"status_anterior": null,
+		"modulo": "undefined",
+		"quadro": "undefined",
+		"local_instalacao": "undefined"
+	},
+	{
+		"id": "b2a08155-6ece-4391-8bb9-a9b3ea7adaad",
+		"created_at": "2022-07-27T09:22:50.000Z",
+		"updated_at": "2022-07-27T09:22:50.000Z",
+		"codigo": "CON005",
+		"modelo": "undefined",
+		"status": "normal",
+		"status_anterior": null,
+		"modulo": "undefined",
+		"quadro": "undefined",
+		"local_instalacao": "undefined"
+	},
+	{
+		"id": "624a17ae-4464-4c19-8c6b-565302b09da5",
+		"created_at": "2022-07-27T09:22:56.000Z",
+		"updated_at": "2022-07-27T09:22:56.000Z",
+		"codigo": "CON009",
+		"modelo": "undefined",
+		"status": "normal",
+		"status_anterior": null,
+		"modulo": "undefined",
+		"quadro": "undefined",
+		"local_instalacao": "undefined"
+	},
+	{
+		"id": "41561d7c-89fb-42e
+...
+Response: 200 109.206 ms 
+
+Request: GET /condensadoras/192.168.6.20:3020/condensadoras/ at Fri Aug 12 2022 14:01:59 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 404 4.970 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:02:11 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-10T11:06:09.000Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": null,
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor"
+}
+Response: 200 30.646 ms 
+
+Request: PUT /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:03:20 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"message": "Condensadora atualizada com sucesso!"
+}
+Response: 200 85.477 ms 
+
+Request: PUT /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:03:25 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"message": "Condensadora atualizada com sucesso!"
+}
+Response: 200 33.309 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:03:28 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:03:25.669Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor"
+}
+Response: 200 3.995 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:04:49 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:03:25.669Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"Documento_Condensadora": [
+		{
+			"id": "0a17cc41-1776-4634-83dc-f79ced836165",
+			"created_at": "2022-08-12T17:03:25.690Z",
+			"updated_at": "2022-08-12T17:03:25.690Z",
+			"id_doc": "37dd2667-aeac-4b8e-9df3-fa676b7e8cdf",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "16865bff-9202-4a43-be48-c4d4353c2e68",
+			"created_at": "2022-08-12T17:03:20.714Z",
+			"updated_at": "2022-08-12T17:03:20.715Z",
+			"id_doc": "36497ed5-87c9-46c7-a909-3dfb99e41aba",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "816b653b-aaa4-4355-ae04-8cf42dff3ca8",
+			"created_at": "2022-08-10T11:09:33.000Z",
+			"updated_at": "2022-08-10T11:09:33.000Z",
+
+...
+Response: 200 114.801 ms 
+
+Request: DELETE /documentos/0a17cc41-1776-4634-83dc-f79ced836165 at Fri Aug 12 2022 14:05:10 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 404 2.770 ms 
+
+Request: DELETE /documentos/0a17cc41-1776-4634-83dc-f79ced836165 at Fri Aug 12 2022 14:09:44 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"message": "Documento criado com sucesso!"
+}
+Response: 201 14.616 ms 
+
+Request: DELETE /documentos/16865bff-9202-4a43-be48-c4d4353c2e68 at Fri Aug 12 2022 14:10:10 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 204 12.552 ms 
+
+Request: GET /condensadoras/0f3b0a6b-0363-4555-ba2a-6c13893c5bea at Fri Aug 12 2022 14:10:13 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+Condensadora inexistente!
+Response: 400 12.226 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:10:27 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:03:25.669Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"Documento_Condensadora": [
+		{
+			"id": "0a17cc41-1776-4634-83dc-f79ced836165",
+			"created_at": "2022-08-12T17:03:25.690Z",
+			"updated_at": "2022-08-12T17:03:25.690Z",
+			"id_doc": "37dd2667-aeac-4b8e-9df3-fa676b7e8cdf",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "16865bff-9202-4a43-be48-c4d4353c2e68",
+			"created_at": "2022-08-12T17:03:20.714Z",
+			"updated_at": "2022-08-12T17:03:20.715Z",
+			"id_doc": "36497ed5-87c9-46c7-a909-3dfb99e41aba",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "816b653b-aaa4-4355-ae04-8cf42dff3ca8",
+			"created_at": "2022-08-10T11:09:33.000Z",
+			"updated_at": "2022-08-10T11:09:33.000Z",
+
+...
+Response: 200 7.185 ms 
+
+Request: DELETE /documentos/0a17cc41-1776-4634-83dc-f79ced836165 at Fri Aug 12 2022 14:10:36 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 204 0.980 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:10:39 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:03:25.669Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"Documento_Condensadora": [
+		{
+			"id": "0a17cc41-1776-4634-83dc-f79ced836165",
+			"created_at": "2022-08-12T17:03:25.690Z",
+			"updated_at": "2022-08-12T17:03:25.690Z",
+			"id_doc": "37dd2667-aeac-4b8e-9df3-fa676b7e8cdf",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "16865bff-9202-4a43-be48-c4d4353c2e68",
+			"created_at": "2022-08-12T17:03:20.714Z",
+			"updated_at": "2022-08-12T17:03:20.715Z",
+			"id_doc": "36497ed5-87c9-46c7-a909-3dfb99e41aba",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "816b653b-aaa4-4355-ae04-8cf42dff3ca8",
+			"created_at": "2022-08-10T11:09:33.000Z",
+			"updated_at": "2022-08-10T11:09:33.000Z",
+
+...
+Response: 200 9.223 ms 
+
+Request: DELETE /documentos/0a17cc41-1776-4634-83dc-f79ced836165 at Fri Aug 12 2022 14:10:54 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 204 0.881 ms 
+
+Request: DELETE /documentos/0a17cc41-1776-4634-83dc-f79ced836165 at Fri Aug 12 2022 14:11:39 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+Documento inexistente!
+Response: 400 107.747 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:11:46 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:03:25.669Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"Documento_Condensadora": [
+		{
+			"id": "0a17cc41-1776-4634-83dc-f79ced836165",
+			"created_at": "2022-08-12T17:03:25.690Z",
+			"updated_at": "2022-08-12T17:03:25.690Z",
+			"id_doc": "37dd2667-aeac-4b8e-9df3-fa676b7e8cdf",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "16865bff-9202-4a43-be48-c4d4353c2e68",
+			"created_at": "2022-08-12T17:03:20.714Z",
+			"updated_at": "2022-08-12T17:03:20.715Z",
+			"id_doc": "36497ed5-87c9-46c7-a909-3dfb99e41aba",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "816b653b-aaa4-4355-ae04-8cf42dff3ca8",
+			"created_at": "2022-08-10T11:09:33.000Z",
+			"updated_at": "2022-08-10T11:09:33.000Z",
+
+...
+Response: 200 13.331 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:11:54 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:03:25.669Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"Documento_Condensadora": [
+		{
+			"id": "0a17cc41-1776-4634-83dc-f79ced836165",
+			"created_at": "2022-08-12T17:03:25.690Z",
+			"updated_at": "2022-08-12T17:03:25.690Z",
+			"id_doc": "37dd2667-aeac-4b8e-9df3-fa676b7e8cdf",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "16865bff-9202-4a43-be48-c4d4353c2e68",
+			"created_at": "2022-08-12T17:03:20.714Z",
+			"updated_at": "2022-08-12T17:03:20.715Z",
+			"id_doc": "36497ed5-87c9-46c7-a909-3dfb99e41aba",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "816b653b-aaa4-4355-ae04-8cf42dff3ca8",
+			"created_at": "2022-08-10T11:09:33.000Z",
+			"updated_at": "2022-08-10T11:09:33.000Z",
+
+...
+Response: 200 5.129 ms 
+
+Request: DELETE /documentos/0a17cc41-1776-4634-83dc-f79ced83616 at Fri Aug 12 2022 14:12:02 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+Documento inexistente!
+Response: 400 4.972 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:13:07 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:03:25.669Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"Documento_Condensadora": [
+		{
+			"id": "0a17cc41-1776-4634-83dc-f79ced836165",
+			"created_at": "2022-08-12T17:03:25.690Z",
+			"updated_at": "2022-08-12T17:03:25.690Z",
+			"id_doc": "37dd2667-aeac-4b8e-9df3-fa676b7e8cdf",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "16865bff-9202-4a43-be48-c4d4353c2e68",
+			"created_at": "2022-08-12T17:03:20.714Z",
+			"updated_at": "2022-08-12T17:03:20.715Z",
+			"id_doc": "36497ed5-87c9-46c7-a909-3dfb99e41aba",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24"
+		},
+		{
+			"id": "816b653b-aaa4-4355-ae04-8cf42dff3ca8",
+			"created_at": "2022-08-10T11:09:33.000Z",
+			"updated_at": "2022-08-10T11:09:33.000Z",
+
+...
+Response: 200 4.401 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:14:00 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"Documento_Condensadora": [
+		{
+			"documento": {
+				"id": "37dd2667-aeac-4b8e-9df3-fa676b7e8cdf",
+				"created_at": "2022-08-12T17:03:25.681Z",
+				"updated_at": "2022-08-12T17:03:25.682Z",
+				"path": "http://192.168.6.20:3020/files/1c2e3ca960f6f79c256abff1ffa2f621-cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+				"filename": "http://192.168.6.20:3020/files/1c2e3ca960f6f79c256abff1ffa2f621-cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+				"originalName": "cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+				"fileFormat": "application/pdf"
+			}
+		},
+		{
+			"documento": {
+				"id": "36497ed5-87c9-46c7-a909-3dfb99e41aba",
+				"created_at": "2022-08-12T17:03:20.693Z",
+				"updated_at": "2022-08-12T17:03:20.695Z",
+				"path": "http://192.168.6.20:3020/files/0d402c4889e77c99825cb549ce127060-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"filename": "http://192.168.6.20:3020/files/0d402c4889e77c99825cb549ce127060-bab9206bb825539b65ba745ca5e801
+...
+Response: 200 107.071 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:14:10 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:03:25.669Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"Documento_Condensadora": [
+		{
+			"documento": {
+				"id": "37dd2667-aeac-4b8e-9df3-fa676b7e8cdf",
+				"created_at": "2022-08-12T17:03:25.681Z",
+				"updated_at": "2022-08-12T17:03:25.682Z",
+				"path": "http://192.168.6.20:3020/files/1c2e3ca960f6f79c256abff1ffa2f621-cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+				"filename": "http://192.168.6.20:3020/files/1c2e3ca960f6f79c256abff1ffa2f621-cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+				"originalName": "cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+				"fileFormat": "application/pdf"
+			}
+		},
+		{
+			"documento": {
+				"id": "36497ed5-87c9-46c7-a909-3dfb99e41aba",
+				"created_at": "2022-08-12T17
+...
+Response: 200 126.781 ms 
+
+Request: DELETE /documentos/37dd2667-aeac-4b8e-9df3-fa676b7e8cdf at Fri Aug 12 2022 14:14:22 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 204 19.856 ms 
+
+Request: GET /condensadoras at Fri Aug 12 2022 14:14:24 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+[
+	{
+		"id": "66d8184b-0e7b-4176-9d07-ec8580f218fd",
+		"created_at": "2022-07-27T09:22:40.000Z",
+		"updated_at": "2022-07-27T09:22:40.000Z",
+		"codigo": "CON002",
+		"modelo": "undefined",
+		"status": "normal",
+		"status_anterior": null,
+		"modulo": "undefined",
+		"quadro": "undefined",
+		"local_instalacao": "undefined"
+	},
+	{
+		"id": "b2a08155-6ece-4391-8bb9-a9b3ea7adaad",
+		"created_at": "2022-07-27T09:22:50.000Z",
+		"updated_at": "2022-07-27T09:22:50.000Z",
+		"codigo": "CON005",
+		"modelo": "undefined",
+		"status": "normal",
+		"status_anterior": null,
+		"modulo": "undefined",
+		"quadro": "undefined",
+		"local_instalacao": "undefined"
+	},
+	{
+		"id": "624a17ae-4464-4c19-8c6b-565302b09da5",
+		"created_at": "2022-07-27T09:22:56.000Z",
+		"updated_at": "2022-07-27T09:22:56.000Z",
+		"codigo": "CON009",
+		"modelo": "undefined",
+		"status": "normal",
+		"status_anterior": null,
+		"modulo": "undefined",
+		"quadro": "undefined",
+		"local_instalacao": "undefined"
+	},
+	{
+		"id": "41561d7c-89fb-42e
+...
+Response: 200 7.879 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:14:27 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:03:25.669Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"Documento_Condensadora": [
+		{
+			"documento": {
+				"id": "36497ed5-87c9-46c7-a909-3dfb99e41aba",
+				"created_at": "2022-08-12T17:03:20.693Z",
+				"updated_at": "2022-08-12T17:03:20.695Z",
+				"path": "http://192.168.6.20:3020/files/0d402c4889e77c99825cb549ce127060-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"filename": "http://192.168.6.20:3020/files/0d402c4889e77c99825cb549ce127060-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"fileFormat": "application/pdf"
+			}
+		},
+		{
+			"documento": {
+				"id": "dc755dc9-89e1-462e-9dc3-e7c16d5b0107",
+				"created_at": "2022-08-10T11:09:33.000Z"
+...
+Response: 200 4.646 ms 
+
+Request: DELETE /documentos/36497ed5-87c9-46c7-a909-3dfb99e41aba at Fri Aug 12 2022 14:14:34 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 204 13.497 ms 
+
+Request: DELETE /documentos/dc755dc9-89e1-462e-9dc3-e7c16d5b0107 at Fri Aug 12 2022 14:14:45 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 204 16.998 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:14:48 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:03:25.669Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"Documento_Condensadora": [
+		{
+			"documento": {
+				"id": "830b07cf-4419-40ae-ad2b-43ccf2635cf7",
+				"created_at": "2022-08-10T12:13:35.000Z",
+				"updated_at": "2022-08-10T12:13:35.000Z",
+				"path": "http://192.168.6.20:3001/files/bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"filename": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"originalName": "case-so- final.pdf",
+				"fileFormat": "application/pdf"
+			}
+		}
+	]
+}
+Response: 200 4.270 ms 
+
+Request: DELETE /documentos/830b07cf-4419-40ae-ad2b-43ccf2635cf7 at Fri Aug 12 2022 14:14:56 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 204 7.375 ms 
+
+Request: GET /condensadoras at Fri Aug 12 2022 14:14:57 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+[
+	{
+		"id": "66d8184b-0e7b-4176-9d07-ec8580f218fd",
+		"created_at": "2022-07-27T09:22:40.000Z",
+		"updated_at": "2022-07-27T09:22:40.000Z",
+		"codigo": "CON002",
+		"modelo": "undefined",
+		"status": "normal",
+		"status_anterior": null,
+		"modulo": "undefined",
+		"quadro": "undefined",
+		"local_instalacao": "undefined"
+	},
+	{
+		"id": "b2a08155-6ece-4391-8bb9-a9b3ea7adaad",
+		"created_at": "2022-07-27T09:22:50.000Z",
+		"updated_at": "2022-07-27T09:22:50.000Z",
+		"codigo": "CON005",
+		"modelo": "undefined",
+		"status": "normal",
+		"status_anterior": null,
+		"modulo": "undefined",
+		"quadro": "undefined",
+		"local_instalacao": "undefined"
+	},
+	{
+		"id": "624a17ae-4464-4c19-8c6b-565302b09da5",
+		"created_at": "2022-07-27T09:22:56.000Z",
+		"updated_at": "2022-07-27T09:22:56.000Z",
+		"codigo": "CON009",
+		"modelo": "undefined",
+		"status": "normal",
+		"status_anterior": null,
+		"modulo": "undefined",
+		"quadro": "undefined",
+		"local_instalacao": "undefined"
+	},
+	{
+		"id": "41561d7c-89fb-42e
+...
+Response: 200 6.106 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:14:59 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:03:25.669Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"Documento_Condensadora": []
+}
+Response: 200 4.254 ms 
+
+Request: PUT /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:15:13 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"message": "Condensadora atualizada com sucesso!"
+}
+Response: 200 72.675 ms 
+
+Request: PUT /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:15:19 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"message": "Condensadora atualizada com sucesso!"
+}
+Response: 200 30.704 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:15:21 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:15:19.396Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"Documento_Condensadora": [
+		{
+			"documento": {
+				"id": "9f6d45a4-4e81-4618-9751-689879275d2b",
+				"created_at": "2022-08-12T17:15:19.407Z",
+				"updated_at": "2022-08-12T17:15:19.408Z",
+				"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"filename": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"fileFormat": "application/pdf"
+			}
+		},
+		{
+			"documento": {
+				"id": "cff6e78a-9faa-4fa3-958d-72a9c987be94",
+				"created_at": "2022-08-12T17:15:13.314Z"
+...
+Response: 200 3.780 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:18:03 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:15:19.396Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"documentos": [
+		{
+			"documento": {
+				"id": "9f6d45a4-4e81-4618-9751-689879275d2b",
+				"created_at": "2022-08-12T17:15:19.407Z",
+				"updated_at": "2022-08-12T17:15:19.408Z",
+				"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"filename": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"fileFormat": "application/pdf"
+			}
+		},
+		{
+			"documento": {
+				"id": "cff6e78a-9faa-4fa3-958d-72a9c987be94",
+				"created_at": "2022-08-12T17:15:13.314Z",
+				"updat
+...
+Response: 200 111.037 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:19:43 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:15:19.396Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"documentos": [
+		[
+			{
+				"id": "9f6d45a4-4e81-4618-9751-689879275d2b",
+				"created_at": "2022-08-12T17:15:19.407Z",
+				"updated_at": "2022-08-12T17:15:19.408Z",
+				"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"filename": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"fileFormat": "application/pdf"
+			}
+		],
+		[
+			{
+				"id": "cff6e78a-9faa-4fa3-958d-72a9c987be94",
+				"created_at": "2022-08-12T17:15:13.314Z",
+				"updated_at": "2022-08-12T17:15:
+...
+Response: 200 115.619 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:20:12 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:15:19.396Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"documentos": [
+		[
+			{
+				"id": "9f6d45a4-4e81-4618-9751-689879275d2b",
+				"created_at": "2022-08-12T17:15:19.407Z",
+				"updated_at": "2022-08-12T17:15:19.408Z",
+				"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"filename": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+				"fileFormat": "application/pdf"
+			}
+		],
+		[
+			{
+				"id": "cff6e78a-9faa-4fa3-958d-72a9c987be94",
+				"created_at": "2022-08-12T17:15:13.314Z",
+				"updated_at": "2022-08-12T17:15:
+...
+Response: 200 116.220 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:20:30 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:15:19.396Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"documentos": [
+		{
+			"id": "9f6d45a4-4e81-4618-9751-689879275d2b",
+			"created_at": "2022-08-12T17:15:19.407Z",
+			"updated_at": "2022-08-12T17:15:19.408Z",
+			"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"filename": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"fileFormat": "application/pdf"
+		},
+		{
+			"id": "cff6e78a-9faa-4fa3-958d-72a9c987be94",
+			"created_at": "2022-08-12T17:15:13.314Z",
+			"updated_at": "2022-08-12T17:15:13.315Z",
+			"path": "htt
+...
+Response: 200 111.922 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 14:20:39 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:15:19.396Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"documentos": [
+		{
+			"id": "9f6d45a4-4e81-4618-9751-689879275d2b",
+			"created_at": "2022-08-12T17:15:19.407Z",
+			"updated_at": "2022-08-12T17:15:19.408Z",
+			"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"filename": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"fileFormat": "application/pdf"
+		},
+		{
+			"id": "cff6e78a-9faa-4fa3-958d-72a9c987be94",
+			"created_at": "2022-08-12T17:15:13.314Z",
+			"updated_at": "2022-08-12T17:15:13.315Z",
+			"path": "htt
+...
+Response: 200 110.084 ms 
+
+Request: GET /evaporadoras/8e74c68b-0613-4d97-8e94-3cfc6de00018 at Fri Aug 12 2022 14:20:58 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response: 200 23.482 ms 
+
+Request: GET /evaporadoras/13ca5961-dfd7-4df0-8668-28ed4376af3d at Fri Aug 12 2022 14:21:11 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "13ca5961-dfd7-4df0-8668-28ed4376af3d",
+	"created_at": "2022-06-22T12:43:13.000Z",
+	"updated_at": "2022-06-22T12:43:13.000Z",
+	"codigo": "ARC002SP",
+	"modelo": "42MACT12S5",
+	"marca": "Midea",
+	"potencia": 12000,
+	"status": "normal",
+	"status_anterior": null,
+	"quadro": "undefined",
+	"id_sala": "7cf7c1fb-91f1-4d0a-b95c-7cef79a7c160",
+	"sala": {
+		"id": "7cf7c1fb-91f1-4d0a-b95c-7cef79a7c160",
+		"created_at": "2022-06-20T15:53:59.000Z",
+		"updated_at": "2022-06-20T15:53:59.000Z",
+		"nome": "Gerência Tecnologia",
+		"andar": "1",
+		"dimensao": "",
+		"id_setor": "1b307426-2ef5-4199-bc45-4d963eed61bc"
+	}
+}
+Response: 200 9.654 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 14:21:49 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"equipamento": {
+		"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+		"created_at": "2022-08-10T11:07:19.000Z",
+		"updated_at": "2022-08-12T17:15:19.402Z",
+		"tipo": "VRF",
+		"linha": "aaaa",
+		"codigo": "treste",
+		"status": "defeito",
+		"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+		"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+		"condensadora": {
+			"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"created_at": "2022-08-10T11:06:09.000Z",
+			"updated_at": "2022-08-12T17:15:19.396Z",
+			"codigo": "tete",
+			"modelo": "cn990",
+			"status": "normal",
+			"status_anterior": "normal",
+			"modulo": "",
+			"quadro": "Quadro 3",
+			"local_instalacao": "Teto Transmissor",
+			"Documento_Condensadora": [
+				{
+					"documento": {
+						"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					}
+				},
+				{
+					"document
+...
+Response: 201 20.744 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 14:22:38 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": {
+		"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+		"created_at": "2022-08-10T11:07:19.000Z",
+		"updated_at": "2022-08-12T17:15:19.402Z",
+		"tipo": "VRF",
+		"linha": "aaaa",
+		"codigo": "treste",
+		"status": "defeito",
+		"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+		"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+		"condensadora": {
+			"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"created_at": "2022-08-10T11:06:09.000Z",
+			"updated_at": "2022-08-12T17:15:19.396Z",
+			"codigo": "tete",
+			"modelo": "cn990",
+			"status": "normal",
+			"status_anterior": "normal",
+			"modulo": "",
+			"quadro": "Quadro 3",
+			"local_instalacao": "Teto Transmissor",
+			"Documento_Condensadora": [
+				{
+					"documento": {
+						"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					}
+				},
+				{
+					"documento": {
+	
+...
+Response: 201 113.882 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 14:22:48 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Documento_Condensadora": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+				
+...
+Response: 201 116.947 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 14:32:22 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": []
+			}
+		}
+	]
+}
+Response: 201 129.204 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 14:33:52 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Documento_Condensadora": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+				
+...
+Response: 201 122.582 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:39:05 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 141.067 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:40:12 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 134.061 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:41:33 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 133.857 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:41:41 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 156.340 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:42:55 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": [
+				[
+					{
+						"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					}
+				],
+				[
+					{
+						"originalName": "cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+						"path": "http://192.168.6.20:3020/files/4b99b3510869f3bd28a633537f84cc83-cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf"
+					}
+				]
+			]
+		}
+	]
+}
+Response: 201 117.999 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:43:16 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": [
+				[
+					{
+						"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					}
+				],
+				[
+					{
+						"originalName": "cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+						"path": "http://192.168.6.20:3020/files/4b99b3510869f3bd28a633537f84cc83-cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf"
+					}
+				]
+			]
+		}
+	]
+}
+Response: 201 124.570 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:48:18 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 124.452 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:49:01 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": [
+				{
+					"documento": {
+						"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					}
+				},
+				{
+					"documento": {
+						"originalName": "cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+						"path": "http://192.168.6.20:3020/files/4b99b3510869f3bd28a633537f84cc83-cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf"
+					}
+				}
+			]
+		}
+	]
+}
+Response: 201 116.949 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:49:37 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 121.670 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:56:29 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 27.245 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:58:43 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": []
+			}
+		}
+	]
+}
+Response: 201 122.461 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 15:58:54 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Documento_Condensadora": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+				
+...
+Response: 201 165.805 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:00:44 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Documento_Condensadora": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+				
+...
+Response: 201 9.941 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:00:51 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": []
+			}
+		}
+	]
+}
+Response: 201 119.819 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:00:58 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Documento_Condensadora": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+				
+...
+Response: 201 129.991 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:01:14 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": [
+				{
+					"documento": {
+						"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					}
+				},
+				{
+					"documento": {
+						"originalName": "cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+						"path": "http://192.168.6.20:3020/files/4b99b3510869f3bd28a633537f84cc83-cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf"
+					}
+				}
+			]
+		}
+	]
+}
+Response: 201 167.066 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:01:51 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 122.854 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:02:49 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 9.172 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:03:47 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 125.682 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:04:59 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 122.321 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:05:22 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 123.189 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:05:33 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 122.363 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:06:29 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 142.258 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:06:36 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 134.828 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:07:11 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 130.285 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:07:36 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"documento": {
+							"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+							"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+						}
+
+...
+Response: 201 149.118 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:08:19 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z"
+		}
+	]
+}
+Response: 201 141.216 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:08:36 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z"
+		}
+	]
+}
+Response: 201 137.032 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:09:31 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z"
+		}
+	]
+}
+Response: 201 128.401 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 16:11:03 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:15:19.396Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"documentos": [
+		{
+			"id": "9f6d45a4-4e81-4618-9751-689879275d2b",
+			"created_at": "2022-08-12T17:15:19.407Z",
+			"updated_at": "2022-08-12T17:15:19.408Z",
+			"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"filename": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"fileFormat": "application/pdf"
+		},
+		{
+			"id": "cff6e78a-9faa-4fa3-958d-72a9c987be94",
+			"created_at": "2022-08-12T17:15:13.314Z",
+			"updated_at": "2022-08-12T17:15:13.315Z",
+			"path": "htt
+...
+Response: 200 125.541 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 16:11:05 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:15:19.396Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"documentos": [
+		{
+			"id": "9f6d45a4-4e81-4618-9751-689879275d2b",
+			"created_at": "2022-08-12T17:15:19.407Z",
+			"updated_at": "2022-08-12T17:15:19.408Z",
+			"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"filename": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"fileFormat": "application/pdf"
+		},
+		{
+			"id": "cff6e78a-9faa-4fa3-958d-72a9c987be94",
+			"created_at": "2022-08-12T17:15:13.314Z",
+			"updated_at": "2022-08-12T17:15:13.315Z",
+			"path": "htt
+...
+Response: 200 5.525 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 16:11:17 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:15:19.396Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"documentos": [
+		{
+			"id": "9f6d45a4-4e81-4618-9751-689879275d2b",
+			"created_at": "2022-08-12T17:15:19.407Z",
+			"updated_at": "2022-08-12T17:15:19.408Z",
+			"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"filename": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"fileFormat": "application/pdf"
+		},
+		{
+			"id": "cff6e78a-9faa-4fa3-958d-72a9c987be94",
+			"created_at": "2022-08-12T17:15:13.314Z",
+			"updated_at": "2022-08-12T17:15:13.315Z",
+			"path": "htt
+...
+Response: 200 113.553 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 16:11:23 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:15:19.396Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"documentos": [
+		{
+			"id": "9f6d45a4-4e81-4618-9751-689879275d2b",
+			"created_at": "2022-08-12T17:15:19.407Z",
+			"updated_at": "2022-08-12T17:15:19.408Z",
+			"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"filename": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"fileFormat": "application/pdf"
+		},
+		{
+			"id": "cff6e78a-9faa-4fa3-958d-72a9c987be94",
+			"created_at": "2022-08-12T17:15:13.314Z",
+			"updated_at": "2022-08-12T17:15:13.315Z",
+			"path": "htt
+...
+Response: 200 111.285 ms 
+
+Request: GET /condensadoras/bf681d0b-5d55-4fef-ba42-07b43add1d24 at Fri Aug 12 2022 16:11:38 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+	"created_at": "2022-08-10T11:06:09.000Z",
+	"updated_at": "2022-08-12T17:15:19.396Z",
+	"codigo": "tete",
+	"modelo": "cn990",
+	"status": "normal",
+	"status_anterior": "normal",
+	"modulo": "",
+	"quadro": "Quadro 3",
+	"local_instalacao": "Teto Transmissor",
+	"documentos": [
+		{
+			"id": "9f6d45a4-4e81-4618-9751-689879275d2b",
+			"created_at": "2022-08-12T17:15:19.407Z",
+			"updated_at": "2022-08-12T17:15:19.408Z",
+			"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"filename": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+			"fileFormat": "application/pdf"
+		},
+		{
+			"id": "cff6e78a-9faa-4fa3-958d-72a9c987be94",
+			"created_at": "2022-08-12T17:15:13.314Z",
+			"updated_at": "2022-08-12T17:15:13.315Z",
+			"path": "htt
+...
+Response: 200 134.996 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:11:46 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z"
+		}
+	]
+}
+Response: 201 23.845 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:12:02 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z"
+		}
+	]
+}
+Response: 201 133.297 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:12:18 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z"
+		}
+	]
+}
+Response: 201 167.692 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:14:01 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": [
+				{
+					"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+					"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+				},
+				{
+					"originalName": "cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+					"path": "http://192.168.6.20:3020/files/4b99b3510869f3bd28a633537f84cc83-cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf"
+				}
+			]
+		}
+	]
+}
+Response: 201 121.229 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:14:14 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": [
+				{
+					"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+					"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+				},
+				{
+					"originalName": "cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf",
+					"path": "http://192.168.6.20:3020/files/4b99b3510869f3bd28a633537f84cc83-cb839a706e1b88caed6c8fa6d73feeaa-Trabalho Auditoria.pdf"
+				}
+			]
+		}
+	]
+}
+Response: 201 122.851 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:14:24 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					},
+					{
+						"originalN
+...
+Response: 201 141.068 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:16:03 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					},
+					{
+						"originalN
+...
+Response: 201 150.732 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:16:41 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					},
+					{
+						"originalN
+...
+Response: 201 138.787 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:16:54 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"originalName": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					},
+					{
+						"originalN
+...
+Response: 201 131.199 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:17:38 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"nome": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					},
+					{
+						"nome": "cb839a706
+...
+Response: 201 119.153 ms 
+
+Request: GET /equipamentos/ad60bbee-16df-460f-8d5b-b1ed842ed222 at Fri Aug 12 2022 16:18:33 GMT-0300, IP: ::ffff:127.0.0.1, User Agent: insomnia/2022.5.0
+Response Body:
+{
+	"data": [
+		{
+			"id": "ad60bbee-16df-460f-8d5b-b1ed842ed222",
+			"tipo": "VRF",
+			"linha": "aaaa",
+			"codigo": "treste",
+			"status": "defeito",
+			"id_condensadora": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+			"id_evaporadora": "d5bd3ad8-4adf-4e64-b4d1-e3b46da8a9ce",
+			"created_at": "2022-08-10T11:07:19.000Z",
+			"updated_at": "2022-08-12T17:15:19.402Z",
+			"condensadora": {
+				"id": "bf681d0b-5d55-4fef-ba42-07b43add1d24",
+				"created_at": "2022-08-10T11:06:09.000Z",
+				"updated_at": "2022-08-12T17:15:19.396Z",
+				"codigo": "tete",
+				"modelo": "cn990",
+				"status": "normal",
+				"status_anterior": "normal",
+				"modulo": "",
+				"quadro": "Quadro 3",
+				"local_instalacao": "Teto Transmissor",
+				"Manutencao": [],
+				"docs": [
+					{
+						"nome": "bab9206bb825539b65ba745ca5e80165-case-so- final.pdf",
+						"path": "http://192.168.6.20:3020/files/d8af57af1c4cd4a71d2480810061d981-bab9206bb825539b65ba745ca5e80165-case-so- final.pdf"
+					},
+					{
+						"nome": "cb839a706
+...
+Response: 201 120.797 ms 

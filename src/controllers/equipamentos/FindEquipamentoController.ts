@@ -27,7 +27,7 @@ class FindEquipamentoController {
     // Retornando mensagem de sucesso para o usuário
     return res.status(201).send(
       {
-        equipamento,
+        data: [equipamento],
       }
     );
   }

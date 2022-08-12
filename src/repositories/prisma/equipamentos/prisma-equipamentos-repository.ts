@@ -129,10 +129,50 @@ export class PrismaEquipamentosRepository implements EquipamentosRepository {
             }
           }
         }
-        
       }
     );
-    return equipamento;
+
+    // Dados da condensadora
+    let cond = equipamento?.condensadora;
+
+    // Salvando os dados dos documentos da condensadora
+    const doc_conds_antigo = Object(equipamento)?.condensadora.Documento_Condensadora;
+
+    // Removendo o campo de documentos antigo
+    delete Object(equipamento)?.condensadora.Documento_Condensadora;
+
+    // Array com os novos documentos
+    let docs = []
+
+    // Variável auxiliar
+    let doc_obj;
+
+    for (let doc of doc_conds_antigo) {
+      doc_obj = {
+        nome: Object(Object.values(doc)[0]).originalName,
+        path: Object(Object.values(doc)[0]).path,
+      }
+
+      docs.push(doc_obj)
+    }
+
+    // Colocando o campo novo dos documentos na condensadora
+    Object(cond).docs = docs
+
+    const equipamento_final = {
+      id: equipamento?.id,
+      tipo: equipamento?.tipo,
+      linha: equipamento?.linha,
+      codigo: equipamento?.codigo,
+      status: equipamento?.status,
+      id_condensadora: equipamento?.id_condensadora,
+      id_evaporadora: equipamento?.id_evaporadora,
+      created_at: equipamento?.created_at,
+      updated_at: equipamento?.updated_at,
+      condensadora: cond
+    }
+
+    return equipamento_final;
   };
 
   async findByCondensadora({ id_condensadora }: EquipamentoFindByCondensadora) {
