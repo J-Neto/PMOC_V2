@@ -39,13 +39,15 @@ export class CreateEvaporadoraService {
       }
     }
 
+    const potencia_final = +potencia;
+
     try {
       // Criando ...
       return await this.evaporadorasRepository.create({
         codigo, 
         modelo, 
         marca,
-        potencia,
+        potencia:potencia_final,
         status, 
         quadro, 
         id_sala

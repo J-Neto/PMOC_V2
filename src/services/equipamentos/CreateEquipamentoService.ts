@@ -37,8 +37,10 @@ export class CreateEquipamentoService {
     // Se o tipo do equipamento for SPLIT ...
     if (tipo == "SPLIT") {
 
+      const equipamento_achado = await this.equipamentosRepository.findByCondensadora({ id_condensadora });
+
       // Verificando se a condensadora já está em algum equipamento já criado
-      if(await this.equipamentosRepository.findByCondensadora({ id_condensadora })) {
+      if(Object(equipamento_achado) > 0) {
         return new Error("Condensadora já cadastrada em algum equipamento!");
       }
     }

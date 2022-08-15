@@ -16,6 +16,8 @@ class UpdateEvaporadoraController {
     // Dados do corpo da requisição
     const { codigo, modelo, marca, potencia, status, quadro, id_sala } = req.body;
 
+    console.log(`Código: ${codigo}, \nModelo: ${modelo}, \nMarca: ${marca}, \nPotencia: ${potencia}, \nStatus: ${status}, \nQuadro: ${quadro}, \nSala: ${id_sala}`)
+
     // Repositório do modelo do Prisma
     const prismaEvaporadorasRepository = new PrismaEvaporadorasRepository();
     const prismaDocumentosRepository = new PrismaDocumentosRepository();

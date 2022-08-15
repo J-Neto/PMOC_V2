@@ -100,6 +100,84 @@ export class PrismaManutencoesRepository implements ManutencoesRepository {
         }
       },
     });
+
+    for (let manu of Object(manutencoes)) {
+
+      // Nova key com o nome da sala
+      manu.evaporadora.nome_sala = manu.evaporadora.sala.nome
+      
+      // Nova key com o nome do setor
+      manu.evaporadora.nome_setor = manu.evaporadora.sala.setor.nome
+
+      // Deletando a key antiga da sala
+      delete manu.evaporadora.sala
+
+      // Se for do tipo corretiva
+      if (manu.tipo == "corretiva") {
+
+        // ... então apagamos o campo "Manutencao_Preventiva"
+        delete Object(manu)?.Manutencao_Preventiva;
+
+        // Criando uma nova key de nome "corretiva" e atribuímos a ela os dados da corretiva
+        Object(manu).corretiva = Object(manu).Manutencao_Corretiva
+
+        // Apagamos a key antiga
+        delete Object(manu).Manutencao_Corretiva
+
+        // Agora organizamos os dados da corretiva
+        for (let corr of Object(manu).corretiva) {
+
+          // Variável auxiliar para guardar o nome do item
+          const nova_key = corr.item.nome
+
+          // Apagando key antiga do nome do itme
+          delete corr.item.nome
+
+          // Criando nova key "item"
+          corr.item = nova_key
+        }
+      }
+
+      // Se for do tipo preventiva
+      if (manu.tipo == "preventiva") {
+        // ... então apagamos o campo "Manutencao_Corretiva"
+        delete Object(manu)?.Manutencao_Corretiva;
+
+        // Criando uma nova key de nome "preventiva" e atribuímos a ela os dados da preventiva
+        Object(manu).preventiva = Object(manu).Manutencao_Preventiva
+
+        // Apagamos a key antiga
+        delete Object(manu).Manutencao_Preventiva
+
+        // Agora organizamos os dados da preventiva
+        for (let prev of Object(manu).preventiva) {
+          
+          // Variável auxiliar para guardar o nome do item
+          const nova_key = prev.item.nome
+          
+          // Apagando key antiga do nome do itme
+          delete prev.item.nome
+
+          // Criando nova key "item"
+          prev.item = nova_key
+
+          // Variável auxiliar para guardar o nome da descrição da tarefa
+          const nova_descricao = prev.tarefa.descricao
+
+          // Apagando key antiga da tarefa
+          delete prev.tarefa
+
+          // Criando nova key "descricao"
+          prev.descricao = nova_descricao
+        }
+        
+
+      }
+
+
+    }
+
+
     return manutencoes;
   };
 

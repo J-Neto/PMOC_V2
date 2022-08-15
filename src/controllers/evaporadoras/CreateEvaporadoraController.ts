@@ -13,6 +13,7 @@ class CreateEvaporadoraController {
     // Dados do corpo da requisição
     const { codigo, modelo, marca, potencia, status, quadro, id_sala } = req.body;
 
+
     // Repositório do modelo do Prisma
     const prismaEvaporadorasRepository = new PrismaEvaporadorasRepository();
     const prismaDocumentosRepository = new PrismaDocumentosRepository();

@@ -53,6 +53,11 @@ export class UpdateEvaporadoraService {
     // Guardaremos o status anterior
     const status_anterior = Object(evaporadora).status;
 
+    let potencial_final = potencia;
+    if (potencia) {
+      potencial_final = +potencia;
+    }
+
     try {
       // Criando ...
       return await this.evaporadorasRepository.update({
@@ -60,7 +65,7 @@ export class UpdateEvaporadoraService {
         codigo, 
         modelo, 
         marca,
-        potencia,
+        potencia:potencial_final,
         status, 
         status_anterior,
         quadro, 

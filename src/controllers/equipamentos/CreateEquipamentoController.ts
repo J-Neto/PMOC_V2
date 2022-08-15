@@ -10,6 +10,8 @@ class CreateEquipamentoController {
     // Dados do corpo da requisição
     const { tipo, linha, id_condensadora, id_evaporadora } = req.body;
 
+    console.log(`Tipo: ${tipo}, \nLinha: ${linha}, \nid_condensadora: ${id_condensadora}, \nid_evaporadora: ${id_evaporadora}`)
+
     // Repositório do modelo do Prisma
     const prismaEquipamentosRepository = new PrismaEquipamentosRepository();
     const prismaCondensadorasRepository = new PrismaCondensadorasRepository();
@@ -28,6 +30,7 @@ class CreateEquipamentoController {
 
     // Caso aconteça algum erro, interrompe o processo retorna a mensagem de erro
     if(equipamento instanceof Error) {
+      console.log(equipamento.message)
       return res.status(400).send(equipamento.message);
     }
 

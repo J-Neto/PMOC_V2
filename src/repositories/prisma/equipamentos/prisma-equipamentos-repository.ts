@@ -47,7 +47,7 @@ export class PrismaEquipamentosRepository implements EquipamentosRepository {
                 }
               },
               Manutencao: {
-                select: {
+                include: {
                   Manutencao_Corretiva: {
                     select: {
                       item: {
@@ -83,6 +83,11 @@ export class PrismaEquipamentosRepository implements EquipamentosRepository {
           },
           evaporadora: {
             include: {
+              sala: {
+                select: {
+                  nome: true
+                }
+              },
               Documento_Evaporadora: {
                 select: {
                   documento: {
@@ -94,7 +99,7 @@ export class PrismaEquipamentosRepository implements EquipamentosRepository {
                 }
               },
               Manutencao: {
-                select: {
+                include: {
                   Manutencao_Corretiva: {
                     select: {
                       item: {
@@ -132,32 +137,198 @@ export class PrismaEquipamentosRepository implements EquipamentosRepository {
       }
     );
 
-    // Dados da condensadora
-    let cond = equipamento?.condensadora;
+    // // DOCUMENTOS ---------------------------------------------------------------------------------------
+    // // Salvando os dados dos documentos da condensadora
+    // Percorrendo o array dos documentos
+    for (let doc of Object(equipamento)?.condensadora.Documento_Condensadora) {
+      
+      // Salvando o nome do documento em nova key
+      doc.nome = doc.documento.originalName
 
-    // Salvando os dados dos documentos da condensadora
-    const doc_conds_antigo = Object(equipamento)?.condensadora.Documento_Condensadora;
+      // Salvando o path do documento em nova key
+      doc.path = doc.documento.path
 
-    // Removendo o campo de documentos antigo
-    delete Object(equipamento)?.condensadora.Documento_Condensadora;
-
-    // Array com os novos documentos
-    let docs = []
-
-    // Variável auxiliar
-    let doc_obj;
-
-    for (let doc of doc_conds_antigo) {
-      doc_obj = {
-        nome: Object(Object.values(doc)[0]).originalName,
-        path: Object(Object.values(doc)[0]).path,
-      }
-
-      docs.push(doc_obj)
+      // Deletando key antiga
+      delete doc.documento
     }
 
-    // Colocando o campo novo dos documentos na condensadora
-    Object(cond).docs = docs
+    // Criando uma nova key "docs" com os dados dos documentos
+    Object(equipamento).condensadora.docs = Object(equipamento)?.condensadora.Documento_Condensadora;
+    
+    // Deletando a key antiga das documentos
+    delete Object(equipamento)?.condensadora.Documento_Condensadora;
+
+    // // Salvando os dados dos documentos da evaporadora
+    // Percorrendo o array dos documentos
+    for (let doc of Object(equipamento)?.evaporadora.Documento_Evaporadora) {
+      
+      // Salvando o nome do documento em nova key
+      doc.nome = doc.documento.originalName
+
+      // Salvando o path do documento em nova key
+      doc.path = doc.documento.path
+
+      // Deletando key antiga
+      delete doc.documento
+    }
+
+    // Criando uma nova key "docs" com os dados dos documentos
+    Object(equipamento).evaporadora.docs = Object(equipamento)?.evaporadora.Documento_Evaporadora;
+    
+    // Deletando a key antiga das documentos
+    delete Object(equipamento)?.evaporadora.Documento_Evaporadora;
+    
+    // // MANUTENÇÕES ---------------------------------------------------------------------------------------
+    // // CONDENSADORAS
+
+    // Percorrendo o array com as manutenções
+     for (let manu of Object(equipamento)?.condensadora.Manutencao) {
+      
+      // Se a manutenção for do tipo "corretiva" ...
+      if (manu.tipo == "corretiva") {
+
+        // ... então apagamos o campo "Manutencao_Preventiva"
+        delete Object(manu)?.Manutencao_Preventiva;
+
+        // Criando uma nova key de nome "corretiva" e atribuímos a ela os dados da corretiva
+        Object(manu).corretiva = Object(manu).Manutencao_Corretiva
+
+        // Apagamos a key antiga
+        delete Object(manu).Manutencao_Corretiva
+
+        // Agora organizamos os dados da corretiva
+        for (let corr of Object(manu).corretiva) {
+
+          // Variável auxiliar para guardar o nome do item
+          const nova_key = corr.item.nome
+
+          // Apagando key antiga do nome do itme
+          delete corr.item.nome
+
+          // Criando nova key "item"
+          corr.item = nova_key
+        }
+      }
+
+      // Se a manutenção for do tipo "preventiva" ..
+      if (manu.tipo == "preventiva") {
+        
+        // ... então apagamos o campo "Manutencao_Corretiva"
+        delete Object(manu)?.Manutencao_Corretiva;
+
+        // Criando uma nova key de nome "preventiva" e atribuímos a ela os dados da preventiva
+        Object(manu).preventiva = Object(manu).Manutencao_Preventiva
+
+        // Apagamos a key antiga
+        delete Object(manu).Manutencao_Preventiva
+
+        // Agora organizamos os dados da preventiva
+        for (let prev of Object(manu).preventiva) {
+          
+          // Variável auxiliar para guardar o nome do item
+          const nova_key = prev.item.nome
+          
+          // Apagando key antiga do nome do itme
+          delete prev.item.nome
+
+          // Criando nova key "item"
+          prev.item = nova_key
+
+          // Variável auxiliar para guardar o nome da descrição da tarefa
+          const nova_descricao = prev.tarefa.descricao
+
+          // Apagando key antiga da tarefa
+          delete prev.tarefa
+
+          // Criando nova key "descricao"
+          prev.descricao = nova_descricao
+        }
+
+      }
+    }
+
+    // Criando uma nova key "manutencoes" com os dados das manutenções
+    Object(equipamento).condensadora.manutencoes = Object(equipamento)?.condensadora.Manutencao
+    
+    // Deletando a key antiga das manutenções
+    delete Object(equipamento)?.condensadora.Manutencao
+
+    // // EVAPORADORAS
+    // Percorrendo o array com as manutenções
+    for (let manu of Object(equipamento)?.evaporadora.Manutencao) {
+      
+      // Se a manutenção for do tipo "corretiva" ...
+      if (manu.tipo == "corretiva") {
+
+        // ... então apagamos o campo "Manutencao_Preventiva"
+        delete Object(manu)?.Manutencao_Preventiva;
+
+        // Criando uma nova key de nome "corretiva" e atribuímos a ela os dados da corretiva
+        Object(manu).corretiva = Object(manu).Manutencao_Corretiva
+
+        // Apagamos a key antiga
+        delete Object(manu).Manutencao_Corretiva
+
+        // Agora organizamos os dados da corretiva
+        for (let corr of Object(manu).corretiva) {
+
+          // Variável auxiliar para guardar o nome do item
+          const nova_key = corr.item.nome
+
+          // Apagando key antiga do nome do itme
+          delete corr.item.nome
+
+          // Criando nova key "item"
+          corr.item = nova_key
+        }
+      }
+
+      // Se a manutenção for do tipo "preventiva" ..
+      if (manu.tipo == "preventiva") {
+        
+        // ... então apagamos o campo "Manutencao_Corretiva"
+        delete Object(manu)?.Manutencao_Corretiva;
+
+        // Criando uma nova key de nome "preventiva" e atribuímos a ela os dados da preventiva
+        Object(manu).preventiva = Object(manu).Manutencao_Preventiva
+
+        // Apagamos a key antiga
+        delete Object(manu).Manutencao_Preventiva
+
+        // Agora organizamos os dados da preventiva
+        for (let prev of Object(manu).preventiva) {
+          
+          // Variável auxiliar para guardar o nome do item
+          const nova_key = prev.item.nome
+          
+          // Apagando key antiga do nome do itme
+          delete prev.item.nome
+
+          // Criando nova key "item"
+          prev.item = nova_key
+
+          // Variável auxiliar para guardar o nome da descrição da tarefa
+          const nova_descricao = prev.tarefa.descricao
+
+          // Apagando key antiga da tarefa
+          delete prev.tarefa
+
+          // Criando nova key "descricao"
+          prev.descricao = nova_descricao
+        }
+
+      }
+    }
+
+    // Criando uma nova key "manutencoes" com os dados das manutenções
+    Object(equipamento).evaporadora.manutencoes = Object(equipamento)?.evaporadora.Manutencao
+    
+    // Deletando a key antiga das manutenções
+    delete Object(equipamento)?.evaporadora.Manutencao
+
+    // Corrigindo a key do nome da sala da evaporadora
+    Object(equipamento).evaporadora.nome_sala = equipamento?.evaporadora.sala?.nome;
+    delete Object(equipamento).evaporadora.sala;
 
     const equipamento_final = {
       id: equipamento?.id,
@@ -169,7 +340,8 @@ export class PrismaEquipamentosRepository implements EquipamentosRepository {
       id_evaporadora: equipamento?.id_evaporadora,
       created_at: equipamento?.created_at,
       updated_at: equipamento?.updated_at,
-      condensadora: cond
+      condensadora: equipamento?.condensadora,
+      evaporadora: equipamento?.evaporadora
     }
 
     return equipamento_final;

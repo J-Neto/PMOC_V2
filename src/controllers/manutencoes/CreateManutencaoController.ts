@@ -13,6 +13,20 @@ class CreateManutencaoController {
     // Dados do corpo da requisição
     const { tipo, status, tec_responsavel, custo, previsao_termino, id_condensadora, id_evaporadora, item_array, descricao_array, item_preventiva, tarefas_array } = req.body;
 
+    console.log(`tipo: ${tipo}`)
+    console.log(`status: ${status}`)
+    console.log(`tecResponsavel: ${tec_responsavel}`)
+    console.log(`custo: ${custo}`)
+    console.log(`previsao_termino: ${previsao_termino}`)
+    console.log(`id_condensadora: ${id_condensadora}`)
+    console.log(`id_evaporadora: ${id_evaporadora}`)
+    console.log(`item_array: ${item_array}`)
+    console.log(`descricao_array: ${descricao_array}`)
+    console.log(`item_preventiva: ${item_preventiva}`)
+    console.log(`tarefas_array: ${tarefas_array}`)
+
+
+
     // Repositório do modelo do Prisma
     const prismaManutencoesRepository = new PrismaManutencoesRepository();
     const prismaManutencoesCorretivasRepository = new PrismaManutencoesCorretivasRepository();
@@ -41,6 +55,7 @@ class CreateManutencaoController {
 
     // Caso aconteça algum erro, interrompe o processo retorna a mensagem de erro
     if(manutencao instanceof Error) {
+      console.log(manutencao.message)
       return res.status(400).send(manutencao.message);
     }
 
