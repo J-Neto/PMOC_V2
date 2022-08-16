@@ -42,7 +42,16 @@ export class PrismaManutencoesRepository implements ManutencoesRepository {
         status: "asc"
       },
       include: {
-        Documento_Manutencao: true,
+        Documento_Manutencao: {
+          select: {
+            documento: {
+              select: {
+                originalName: true,
+                path: true
+              }
+            }
+          }
+        },
         condensadora: true,
         evaporadora: {
           select: {
@@ -112,6 +121,28 @@ export class PrismaManutencoesRepository implements ManutencoesRepository {
       // Deletando a key antiga da sala
       delete manu.evaporadora.sala
 
+      // Colocando o novo campo dos documentos
+      Object(manu).docs = Object(manu).Documento_Manutencao;
+
+      // Deletando o campo do documento manutencao
+      delete Object(manu).Documento_Manutencao;
+
+      // Apagando o campo "foto"
+      delete manu.foto;
+
+      // Organizando os campos dos documentos
+      for (let doc of Object(manu).docs) {
+      
+        // Salvando o nome do documento em nova key
+        doc.nome = doc.documento.originalName
+  
+        // Salvando o path do documento em nova key
+        doc.path = doc.documento.path
+  
+        // Deletando key antiga
+        delete doc.documento
+      }  
+
       // Se for do tipo corretiva
       if (manu.tipo == "corretiva") {
 
@@ -170,13 +201,8 @@ export class PrismaManutencoesRepository implements ManutencoesRepository {
           // Criando nova key "descricao"
           prev.descricao = nova_descricao
         }
-        
-
       }
-
-
     }
-
 
     return manutencoes;
   };
