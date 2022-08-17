@@ -9,10 +9,10 @@ class GetDocumentosController {
     const prismaDocumentosRepository = new PrismaDocumentosRepository();
 
     // Service 
-    const createDocumentoService = new GetDocumentosService(prismaDocumentosRepository);
+    const getDocumentoService = new GetDocumentosService(prismaDocumentosRepository);
 
     // Executando o service
-    const documentos = await createDocumentoService.execute()
+    const documentos = await getDocumentoService.execute()
 
     // Caso aconteça algum erro, interrompe o processo retorna a mensagem de erro
     if(documentos instanceof Error) {

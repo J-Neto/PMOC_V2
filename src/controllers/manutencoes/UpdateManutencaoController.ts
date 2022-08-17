@@ -31,11 +31,9 @@ class UpdateManutencaoController {
       return res.status(400).send(manutencao.message);
     }
 
-    console.log(req.files)
-
     // Pegando os documentos
     if (req.files != null || req.files != undefined) {
-      console.log("chegou")
+
       // Se o usuário enviar algum doucmento (PDF ou PNG)
       if (Object.keys(req.files).length > 0) {
         const createDocumentoService = new CreateDocumentoService(prismaDocumentosRepository);

@@ -55,6 +55,7 @@ import { DeleteUsuarioController } from "../controllers/usuarios/DeleteUsuarioCo
 import { UpdateUsuarioController } from "../controllers/usuarios/UpdateUsuarioController";
 import { AuthenticateUsuarioController } from "../controllers/usuarios/AuthenticateUsuarioController";
 import { DeleteDocumentoController } from "../controllers/documentos/DeleteDocumentoController";
+import { GetDocumentosController } from "../controllers/documentos/GetDocumentosController";
 
 const router = Router();
 
@@ -117,6 +118,7 @@ router
 router
   .route("/documentos")
   .post(multer(multerConfig).fields([{name: "file"}, {name: "foto"}]), new CreateDocumentoController().handle)
+  .get(new GetDocumentosController().handle)
 
 router
   .route("/documentos/:id")
