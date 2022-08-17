@@ -94,13 +94,18 @@ export class UpdateManutencaoService {
 
     const data = new Date(Object(previsao_termino))
 
+    let custo_final = custo;
+    if (custo) {
+        custo_final = +custo;
+    }
+
     // Atualizando a manutenção...
     const manutencao = await this.manutencoesRepository.update({
         id,
         tipo, 
         status, 
         tec_responsavel, 
-        custo, 
+        custo: custo_final, 
         previsao_termino:data, 
         id_condensadora, 
         id_evaporadora

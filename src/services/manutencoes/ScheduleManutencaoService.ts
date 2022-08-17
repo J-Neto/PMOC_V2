@@ -109,7 +109,7 @@ export class ScheduleManutencaoService {
               // Se o dia atual for o mesmo do agendado, cria a nova manutenção PREVENTIVA
               if (data_atual.toString() == data_agendado.toString()) {
 
-                console.log(`${new Date().toString()} | Iniciando a manutenção preventiva`);
+                console.log(`${new Date().toString()} | Iniciando a manutenção preventiva | id: ${Object(manutencao).id}`);
 
                 await this.manutencoesRepository.start({
                   id: Object(manutencao).id,

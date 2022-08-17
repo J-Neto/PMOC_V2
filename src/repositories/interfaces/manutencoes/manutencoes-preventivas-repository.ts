@@ -35,5 +35,5 @@ export interface ManutencoesPreventivasRepository {
     find: (data: ManutencaoPreventivaFind) => Promise<Object | null>;
     findByManutencao: (data: ManutencaoPreventivaFindByManutencao) => Promise<Object | null>;
     delete: (data: ManutencaoPreventivaDelete) => Promise<void>;
-    update: (data: ManutencaoPreventivaUpdate) => Promise<void>;
+    update: (data: ManutencaoPreventivaUpdate) => Promise<Object | null>;
 }

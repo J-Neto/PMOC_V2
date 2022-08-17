@@ -39,6 +39,7 @@ export class CreateEvaporadoraService {
       }
     }
 
+    // Convertendo a potencia string para number
     const potencia_final = +potencia;
 
     try {

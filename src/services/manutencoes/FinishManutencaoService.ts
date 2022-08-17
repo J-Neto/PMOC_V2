@@ -31,7 +31,7 @@ export class FinishManutencaoService {
     const { id, finalizado } = request;
 
     // Buscando para verificar se a manutenção existe
-    const manutencao = await this.manutencoesRepository.find({ id });
+    let manutencao = await this.manutencoesRepository.find({ id });
 
     if (!manutencao) {
         return new Error("Manutenção inexistente!");
@@ -42,19 +42,24 @@ export class FinishManutencaoService {
       
       // status
       const status_manu = "realizado";
+      // Data do termino
+      const termino = new Date();
 
-      // Atualizad o status e salva
+      // Atualizando o status e salva
       try {
         await this.manutencoesRepository.finish({
           id,
-          status: status_manu
+          status: status_manu,
         })
       } catch (err) {
         return err;
       }
     
-      // Data do termino
-      const termino = new Date();
+      // Atualizando a data de termino da manutencao
+      const manutencao = await this.manutencoesRepository.update({
+        id,
+        data_termino: termino
+      })
 
       // Se ela for corretiva, iremos atualizar os status dos dispositivos da manutenção
       if (Object(manutencao).tipo == "corretiva") {
@@ -147,7 +152,7 @@ export class FinishManutencaoService {
         for (let preventiva of Object(preventivas)) {
 
           // Atualizando a data de término de cada manutenção
-          await this.manutencoesPreventivasRepository.update({
+          preventiva = await this.manutencoesPreventivasRepository.update({
             id: Object(preventiva).id,
             data_termino: termino
           });
@@ -156,18 +161,20 @@ export class FinishManutencaoService {
           if (Object(preventiva).tarefa.frequencia == "mensal") {
 
             // Criando a data do agendamento para o próximo mês
-            const agendado = new Date();
+            let agendado = new Date();
             if (agendado) {
               agendado.setMonth(Object(preventiva).data_termino.getMonth() + 1);
             }
 
-            await this.manutencoesPreventivasRepository.update({
+            preventiva = await this.manutencoesPreventivasRepository.update({
               id: Object(preventiva).id,
               data_agendado: agendado,
             })
+            console.log(agendado)
 
             // Criando a nova manutenção preventiva AGENDADA
             // Alguns dados permanecem os mesmos da manutenção ATUAL            
+
             const tipo = Object(manutencao).tipo;
             const status = "agendado";
             const tec_responsavel = Object(manutencao).tec_responsavel;
@@ -176,9 +183,9 @@ export class FinishManutencaoService {
 
             // A seguir, será feito o cálculo para saber o prazo da manutenção ATUAL 
             // Data de quando foi criada
-            const p_data_criacao = Object(preventiva).created_at;
+            let p_data_criacao = Object(preventiva).created_at;
             // Data de quando deveria terminar
-            const p_previsao_termino = Object(preventiva).previsao_termino;
+            let p_previsao_termino = Object(preventiva).previsao_termino;
             // Desconsiderando as horas
             p_data_criacao.setHours(0,0,0);
             p_previsao_termino.setHours(0,0,0);
@@ -187,13 +194,13 @@ export class FinishManutencaoService {
             const prazo = Math.abs(((p_data_criacao.getTime() - p_previsao_termino.getTime())/(1000 * 3600 * 24)));
 
             // Com base no prazo da manutenção atual, estabelecendo o prazo para a NOVA manutenção que será agendada
-            const previsao_termino = Object(preventiva).data_agendado;
+            let previsao_termino = Object(preventiva).data_agendado;
             if (previsao_termino) {
               previsao_termino.setDate(previsao_termino.getDate() + prazo);
             }
 
             // Data do agendamento
-            const data_agendado = new Date();
+            let data_agendado = new Date();
             data_agendado.setMonth(data_agendado.getMonth() + 1)
 
             // Cria a nova manutenção
@@ -225,18 +232,20 @@ export class FinishManutencaoService {
           if (Object(preventiva).tarefa.frequencia == "trimestral") {
 
             // Criando a data do agendamento para o próximo mês
-            const agendado = new Date();
+            let agendado = new Date();
             if (agendado) {
               agendado.setMonth(Object(preventiva).data_termino.getMonth() + 3);
             }
 
-            await this.manutencoesPreventivasRepository.update({
+            preventiva = await this.manutencoesPreventivasRepository.update({
               id: Object(preventiva).id,
               data_agendado: agendado,
             })
+            console.log(agendado)
 
             // Criando a nova manutenção preventiva AGENDADA
             // Alguns dados permanecem os mesmos da manutenção ATUAL            
+
             const tipo = Object(manutencao).tipo;
             const status = "agendado";
             const tec_responsavel = Object(manutencao).tec_responsavel;
@@ -245,9 +254,9 @@ export class FinishManutencaoService {
 
             // A seguir, será feito o cálculo para saber o prazo da manutenção ATUAL 
             // Data de quando foi criada
-            const p_data_criacao = Object(preventiva).created_at;
+            let p_data_criacao = Object(preventiva).created_at;
             // Data de quando deveria terminar
-            const p_previsao_termino = Object(preventiva).previsao_termino;
+            let p_previsao_termino = Object(preventiva).previsao_termino;
             // Desconsiderando as horas
             p_data_criacao.setHours(0,0,0);
             p_previsao_termino.setHours(0,0,0);
@@ -256,11 +265,13 @@ export class FinishManutencaoService {
             const prazo = Math.abs(((p_data_criacao.getTime() - p_previsao_termino.getTime())/(1000 * 3600 * 24)));
 
             // Com base no prazo da manutenção atual, estabelecendo o prazo para a NOVA manutenção que será agendada
-            const previsao_termino = Object(preventiva).data_agendado;
-            previsao_termino.setDate(previsao_termino.getDate() + prazo);
+            let previsao_termino = Object(preventiva).data_agendado;
+            if (previsao_termino) {
+              previsao_termino.setDate(previsao_termino.getDate() + prazo);
+            }
 
             // Data do agendamento
-            const data_agendado = new Date();
+            let data_agendado = new Date();
             data_agendado.setMonth(data_agendado.getMonth() + 3)
 
             // Cria a nova manutenção
@@ -292,18 +303,20 @@ export class FinishManutencaoService {
           if (Object(preventiva).tarefa.frequencia == "semestral") {
 
             // Criando a data do agendamento para o próximo mês
-            const agendado = new Date();
+            let agendado = new Date();
             if (agendado) {
               agendado.setMonth(Object(preventiva).data_termino.getMonth() + 6);
             }
 
-            await this.manutencoesPreventivasRepository.update({
+            preventiva = await this.manutencoesPreventivasRepository.update({
               id: Object(preventiva).id,
               data_agendado: agendado,
             })
+            console.log(agendado)
 
             // Criando a nova manutenção preventiva AGENDADA
             // Alguns dados permanecem os mesmos da manutenção ATUAL            
+
             const tipo = Object(manutencao).tipo;
             const status = "agendado";
             const tec_responsavel = Object(manutencao).tec_responsavel;
@@ -312,9 +325,9 @@ export class FinishManutencaoService {
 
             // A seguir, será feito o cálculo para saber o prazo da manutenção ATUAL 
             // Data de quando foi criada
-            const p_data_criacao = Object(preventiva).created_at;
+            let p_data_criacao = Object(preventiva).created_at;
             // Data de quando deveria terminar
-            const p_previsao_termino = Object(preventiva).previsao_termino;
+            let p_previsao_termino = Object(preventiva).previsao_termino;
             // Desconsiderando as horas
             p_data_criacao.setHours(0,0,0);
             p_previsao_termino.setHours(0,0,0);
@@ -323,13 +336,13 @@ export class FinishManutencaoService {
             const prazo = Math.abs(((p_data_criacao.getTime() - p_previsao_termino.getTime())/(1000 * 3600 * 24)));
 
             // Com base no prazo da manutenção atual, estabelecendo o prazo para a NOVA manutenção que será agendada
-            const previsao_termino = Object(preventiva).data_agendado;
-            if (agendado) {
+            let previsao_termino = Object(preventiva).data_agendado;
+            if (previsao_termino) {
               previsao_termino.setDate(previsao_termino.getDate() + prazo);
             }
 
             // Data do agendamento
-            const data_agendado = new Date();
+            let data_agendado = new Date();
             data_agendado.setMonth(data_agendado.getMonth() + 6)
 
             // Cria a nova manutenção
@@ -361,18 +374,20 @@ export class FinishManutencaoService {
           if (Object(preventiva).tarefa.frequencia == "anual") {
 
             // Criando a data do agendamento para o próximo mês
-            const agendado = new Date();
+            let agendado = new Date();
             if (agendado) {
               agendado.setMonth(Object(preventiva).data_termino.getMonth() + 12);
             }
 
-            await this.manutencoesPreventivasRepository.update({
+            preventiva = await this.manutencoesPreventivasRepository.update({
               id: Object(preventiva).id,
               data_agendado: agendado,
             })
+            console.log(agendado)
 
             // Criando a nova manutenção preventiva AGENDADA
             // Alguns dados permanecem os mesmos da manutenção ATUAL            
+
             const tipo = Object(manutencao).tipo;
             const status = "agendado";
             const tec_responsavel = Object(manutencao).tec_responsavel;
@@ -381,9 +396,9 @@ export class FinishManutencaoService {
 
             // A seguir, será feito o cálculo para saber o prazo da manutenção ATUAL 
             // Data de quando foi criada
-            const p_data_criacao = Object(preventiva).created_at;
+            let p_data_criacao = Object(preventiva).created_at;
             // Data de quando deveria terminar
-            const p_previsao_termino = Object(preventiva).previsao_termino;
+            let p_previsao_termino = Object(preventiva).previsao_termino;
             // Desconsiderando as horas
             p_data_criacao.setHours(0,0,0);
             p_previsao_termino.setHours(0,0,0);
@@ -392,14 +407,13 @@ export class FinishManutencaoService {
             const prazo = Math.abs(((p_data_criacao.getTime() - p_previsao_termino.getTime())/(1000 * 3600 * 24)));
 
             // Com base no prazo da manutenção atual, estabelecendo o prazo para a NOVA manutenção que será agendada
-            const previsao_termino = Object(preventiva).data_agendado;
-            if(previsao_termino) {
+            let previsao_termino = Object(preventiva).data_agendado;
+            if (previsao_termino) {
               previsao_termino.setDate(previsao_termino.getDate() + prazo);
             }
 
             // Data do agendamento
-            const data_agendado = new Date();
-
+            let data_agendado = new Date();
             data_agendado.setMonth(data_agendado.getMonth() + 12)
 
             // Cria a nova manutenção

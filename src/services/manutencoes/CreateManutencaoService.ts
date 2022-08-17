@@ -92,12 +92,17 @@ export class CreateManutencaoService {
 
     const data = new Date(Object(previsao_termino))
 
+    let custo_final = custo;
+    if (custo) {
+        custo_final = +custo;
+    }
+
     // Criando a manutenção...
     const manutencao = await this.manutencoesRepository.create({
         tipo, 
         status, 
         tec_responsavel, 
-        custo, 
+        custo: custo_final, 
         previsao_termino:data, 
         id_condensadora, 
         id_evaporadora

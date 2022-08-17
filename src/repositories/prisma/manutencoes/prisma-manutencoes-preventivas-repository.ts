@@ -58,7 +58,7 @@ export class PrismaManutencoesPreventivasRepository implements ManutencoesPreven
   async update({ id, previsao_termino, data_termino, data_agendado, id_manutencao, id_item, id_tarefa }: ManutencaoPreventivaUpdate){
     
     // Atualizando a manutencao
-    await prisma.manutencao_Preventiva.update({
+    return await prisma.manutencao_Preventiva.update({
       where: {
         id,
       },
@@ -69,6 +69,13 @@ export class PrismaManutencoesPreventivasRepository implements ManutencoesPreven
         id_manutencao,
         id_item,
         id_tarefa
+      },
+      include: {
+        tarefa: {
+          select: {
+            frequencia: true
+          }
+        }
       }
     });
   };
