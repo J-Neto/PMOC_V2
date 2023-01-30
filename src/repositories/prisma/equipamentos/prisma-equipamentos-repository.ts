@@ -20,9 +20,26 @@ export class PrismaEquipamentosRepository implements EquipamentosRepository {
 
   async get() {
     const itens = await prisma.equipamento.findMany({
+      include: {
+        evaporadora: {
+          select: {
+            sala: {
+              select: {
+                nome: true,
+                setor: {
+                  select: {
+                    nome: true
+                  }
+                }
+              }
+            },
+            
+          }
+        }
+      },
       orderBy: {
         codigo: "asc"
-      }
+      },
     });
     return itens;
   };
